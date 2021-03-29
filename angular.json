@@ -121,8 +121,13 @@
               "devServerTarget": "drobinetm-portfolio:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "drobinetm-portfolio"
 }
