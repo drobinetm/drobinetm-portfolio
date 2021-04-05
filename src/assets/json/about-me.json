@@ -1,0 +1,75 @@
+[{
+    "general": [{
+        "description": ""
+    }],
+    "personal": {
+        "name": "Diovi Robinet Morales",
+        "website": "https://drobinetm.github.io",
+        "phone": "+53 5505 6236",
+        "city": "La Habana, Cuba",
+        "age": 35,
+        "degree": "Computer Science Engineer",
+        "email": "drobinetmorales@gmail.com"
+    },
+    "skills": [{
+        "name": "Html",
+        "value": "100"
+    },{
+        "name": "Angular (+6)",
+        "value": 100
+    },{
+        "name": "Javascript",
+        "value": 100
+    },{
+        "name": "VueJs",
+        "value": 100
+    },{
+        "name": "Css",
+        "value": 98
+    },{
+        "name": "ReactJs",
+        "value": 100
+    },{
+        "name": "C#",
+        "value": 100
+    },{
+        "name": "Laravel (5.6+)",
+        "value": 100
+    },{
+        "name": "Asp .Net",
+        "value": 100
+    },{
+        "name": "Django",
+        "value": 100
+    },{
+        "name": "Php",
+        "value": 100
+    },{
+        "name": "Python",
+        "value": 100
+    },{
+        "name": "Java",
+        "value": 85
+    },{
+        "name": "Android",
+        "value": 85
+    },{
+        "name": "NodeJs",
+        "value": 90
+    },{
+        "name": "Symfony",
+        "value": 97
+    },{
+        "name": "Zend Framework",
+        "value": 90
+    },{
+        "name": "Sql",
+        "value": 98
+    },{
+        "name": "MongoDB",
+        "value": 93
+    },{
+        "name": "GraphQL",
+        "value": 93
+    }]
+}]

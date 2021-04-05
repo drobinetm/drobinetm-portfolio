@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RenderUrlDemandService} from './services/render-url-demand.service';
+import {RenderUrlDemandService} from './services/render-url-demand/render-url-demand.service';
 
 @Component({
   selector: 'app-root',

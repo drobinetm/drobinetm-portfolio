@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photo-container.component.scss']
 })
 export class PhotoContainerComponent implements OnInit {
-  name = 'Diovi Robinet Morales';
+  name = 'Diovi Robinet';
   description = 'I\'m a Full Stack Developer ';
 
   constructor() { }
