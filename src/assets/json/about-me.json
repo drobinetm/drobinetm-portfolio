@@ -8,7 +8,7 @@
         "phone": "+53 5505 6236",
         "city": "La Habana, Cuba",
         "age": 35,
-        "degree": "Computer Science Engineer",
+        "degree": "Computer Engineer",
         "email": "drobinetmorales@gmail.com"
     },
     "skills": [{
@@ -71,5 +71,17 @@
     },{
         "name": "GraphQL",
         "value": 93
+    },{
+        "name": "MySQL",
+        "value": 100
+    },{
+        "name": "PostgreSQL",
+        "value": 100
+    },{
+        "name": "SQL Server",
+        "value": 100
+    },{
+        "name": "SQLite",
+        "value": 100
     }]
 }]
