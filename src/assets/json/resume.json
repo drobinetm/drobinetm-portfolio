@@ -4,7 +4,7 @@
   },
   "summary": {
     "name": "Diovi Robinet Morales",
-    "description": "Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.",
+    "description": "Learning new technologies is one of the professional challenges that I like the most. Soccer and chess are other of my passions. I enjoy good music and going for a run in the afternoon in my free time.",
     "data": {
       "email": "drobinetmorales@gmail.com",
       "city": "La Habana, Cuba",
@@ -12,35 +12,34 @@
     }
   },
   "education": [{
-    "title": "Master of Fine Arts &amp; Graphic Design",
-    "date": "2014 - 2015",
-    "place": "Rochester Institute of Technology, Rochester, NY",
-    "description": "Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend"
-  }, {
-    "title": "Bachelor of Fine Arts &amp; Graphic Design",
-    "date": "2015 - 2016",
-    "place": "Rochester Institute of Technology, Rochester, NY",
-    "description": "Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila"
+    "title": "Software Engineer",
+    "date": "2004 - 2009",
+    "place": "University Of Informatic Sciences (UCI)",
+    "data": [
+      "Web Platform Development for Testing of Telephone Plants.",
+      "Distributed System Development to register testing on ASTERIX."
+    ]
   }],
   "occupation": [{
-    "title": "Senior graphic design specialist",
-    "date": "2019 - Present",
-    "place": "Experion, New York, NY",
+    "title": "Senior Programmer",
+    "date": "2009 - 2011",
+    "place": "Institution of Defense",
     "data": [
-      "Lead in the design, development, and implementation of the graphic, layout, and production communication materials",
-      "Delegate tasks to the 7 members of the design team and provide counsel on all aspects of the project.",
-      "Supervise the assessment of all graphic materials in order to ensure quality and accuracy of the design",
-      "Oversee the efficient use of production project budgets ranging from $2,000 - $25,000"
+        "Application Development for event management in the city.",
+        "Platform Development for audio and video management.",
+        "Application Development for software license management."
     ]
   },{
-    "title": "Graphic design specialist",
-    "date": "2010 - 2019",
-    "place": "Stepping Stone Advertising, New York, NY",
+    "title": "Advanced Programming, Course",
+    "date": "2015 - 2015",
+    "place": "Desoft, Development Software",
     "data": [
-      "Developed numerous marketing programs (logos, brochures,infographics, presentations, and advertisements).",
-      "Managed up to 5 projects or tasks at a given time while under pressure",
-      "Recommended and consulted with clients on the most appropriate graphic design",
-      "Created 4+ design presentations and proposals a month for clients and account managers"
+      "Development of Advanced Web Programming Techniques.",
+      "Basic Data Mining Course with PostgreSQL.",
+      "Development of mobile applications with Java ME.",
+      "HTML5 and CSS3 Advanced Course. Responsive applications.",
+      "Course of Good Programming Practices. Advanced Python",
+      "Course of Analysis and optimization of algorithms."
     ]
   }]
 }]
