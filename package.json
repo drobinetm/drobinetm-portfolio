@@ -1,11 +1,11 @@
 {
   "name": "drobinetm-portfolio",
   "version": "0.0.0",
-  "homepage": "http://drobinetm.github.io/portfolio",
+  "homepage": "https://drobinetm.github.io/drobinetm-portfolio",
   "scripts": {
     "ng": "ng",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "predeploy": "ng build --prod --base-href ./",
+    "deploy": "npx angular-cli-ghpages",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",

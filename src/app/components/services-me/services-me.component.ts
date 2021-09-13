@@ -14,7 +14,7 @@ export class ServicesMeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.loadJson.loadJSON('../../../assets/json/my-services.json').subscribe((json) => {
+    this.loadJson.loadJSON('./assets/json/my-services.json').subscribe((json) => {
       this.services = json[0];
     });
   }
