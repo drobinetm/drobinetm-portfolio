@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {LoadJsonService} from "../../services/load-json/load-json.service";
+import {LoadJsonService} from '../../services/load-json/load-json.service';
+import {Summary, SummaryData} from '../../models/summary';
+import {Occupation} from '../../models/occupation';
+import {Education} from '../../models/education';
+import {Resume} from '../../models/resume';
 
 @Component({
   selector: 'app-resume',
@@ -7,10 +11,10 @@ import {LoadJsonService} from "../../services/load-json/load-json.service";
   styleUrls: ['./resume.component.scss']
 })
 export class ResumeComponent implements OnInit {
-  public resume = undefined;
-  public summary = undefined;
-  public occupations = undefined;
-  public educations = undefined;
+  public resume: Resume = undefined;
+  public summary: Summary = undefined;
+  public occupations: Occupation[] = undefined;
+  public educations: Education[] = undefined;
 
   constructor(private loadJson: LoadJsonService) {
     this.resume = this.initResume();
@@ -20,27 +24,33 @@ export class ResumeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadJson.loadJSON('../../../assets/json/resume.json').subscribe((json) => {
-      this.resume = json[0].resume;
+    this.loadJson.loadJSON('./assets/json/resume.json').subscribe((json) => {
+      this.resume = json[0].general;
       this.summary = json[0].summary;
       this.occupations = json[0].occupation;
       this.educations = json[0].education;
     });
   }
 
-  protected initSummary() {
-    return {};
+  protected initSummary(): Summary {
+    return {
+      name: '',
+      description: '',
+      data: new SummaryData()
+    };
   }
 
-  protected initResume() {
-    return {};
+  protected initResume(): Resume {
+    return {
+      description: ''
+    };
   }
 
-  protected initOccupation() {
+  protected initOccupation(): Occupation[]{
     return [];
   }
 
-  protected initEducation() {
+  protected initEducation(): Education[] {
     return [];
   }
 }
