@@ -1,0 +1,45 @@
+[{
+  "resume": {
+    "description": "This is my life!!!"
+  },
+  "summary": {
+    "name": "Diovi Robinet Morales",
+    "description": "Learning new technologies is one of the professional challenges that I like the most. Soccer and chess are other of my passions. I enjoy good music and going for a run in the afternoon in my free time.",
+    "data": {
+      "email": "drobinetmorales@gmail.com",
+      "city": "La Habana, Cuba",
+      "phone": "+53 550 6236"
+    }
+  },
+  "education": [{
+    "title": "Software Engineer",
+    "date": "2004 - 2009",
+    "place": "University Of Informatic Sciences (UCI)",
+    "data": [
+      "Web Platform Development for Testing of Telephone Plants.",
+      "Distributed System Development to register testing on ASTERIX."
+    ]
+  }],
+  "occupation": [{
+    "title": "Senior Programmer",
+    "date": "2009 - 2011",
+    "place": "Institution of Defense",
+    "data": [
+        "Application Development for event management in the city.",
+        "Platform Development for audio and video management.",
+        "Application Development for software license management."
+    ]
+  },{
+    "title": "Advanced Programming, Course",
+    "date": "2015 - 2015",
+    "place": "Desoft, Development Software",
+    "data": [
+      "Development of Advanced Web Programming Techniques.",
+      "Basic Data Mining Course with PostgreSQL.",
+      "Development of mobile applications with Java ME.",
+      "HTML5 and CSS3 Advanced Course. Responsive applications.",
+      "Course of Good Programming Practices. Advanced Python",
+      "Course of Analysis and optimization of algorithms."
+    ]
+  }]
+}]
