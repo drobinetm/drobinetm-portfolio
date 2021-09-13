@@ -1,15 +1,7 @@
 (function () {
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["styles"], {
     /***/
-    "+EN/":
-    /*!*************************!*\
-      !*** ./src/styles.scss ***!
-      \*************************/
-
-    /*! no static exports found */
-
-    /***/
-    function EN(module, exports, __webpack_require__) {
+    "+EN/": function EN(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -33,15 +25,7 @@
     },
 
     /***/
-    "/I9Y":
-    /*!*********************************************************************************************************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--13-1!./node_modules/postcss-loader/src??embedded!./node_modules/resolve-url-loader??ref--13-3!./node_modules/sass-loader/dist/cjs.js??ref--13-4!./src/styles.scss ***!
-      \*********************************************************************************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function I9Y(module, __webpack_exports__, __webpack_require__) {
+    "/I9Y": function I9Y(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -77,15 +61,7 @@
     },
 
     /***/
-    "1A9e":
-    /*!***************************************************************!*\
-      !*** ./src/assets/vendor/bootstrap-icons/bootstrap-icons.css ***!
-      \***************************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function A9e(module, exports, __webpack_require__) {
+    "1A9e": function A9e(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -109,15 +85,7 @@
     },
 
     /***/
-    3:
-    /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-      !*** multi ./src/styles.scss ./src/assets/vendor/bootstrap/css/bootstrap.min.css ./src/assets/vendor/bootstrap-icons/bootstrap-icons.css ./src/assets/vendor/boxicons/css/boxicons.min.css ./src/assets/vendor/glightbox/css/glightbox.min.css ./src/assets/vendor/swiper/swiper-bundle.min.css ./src/assets/css/style.css ***!
-      \*****************************************************************************************************************************************************************************************************************************************************************************************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function _(module, exports, __webpack_require__) {
+    3: function _(module, exports, __webpack_require__) {
       __webpack_require__(
       /*! /media/drobinet/DATOS/My PROJECTS/drobinetm-portfolio/src/styles.scss */
       "+EN/");
@@ -149,15 +117,7 @@
     },
 
     /***/
-    "5I+T":
-    /*!***********************************************************!*\
-      !*** ./src/assets/vendor/glightbox/css/glightbox.min.css ***!
-      \***********************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function IT(module, exports, __webpack_require__) {
+    "5I+T": function IT(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -181,15 +141,7 @@
     },
 
     /***/
-    "5WC1":
-    /*!********************************************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/assets/vendor/bootstrap/css/bootstrap.min.css ***!
-      \********************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function WC1(module, __webpack_exports__, __webpack_require__) {
+    "5WC1": function WC1(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -225,15 +177,7 @@
     },
 
     /***/
-    "9zuN":
-    /*!*******************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/assets/css/style.css ***!
-      \*******************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function zuN(module, __webpack_exports__, __webpack_require__) {
+    "9zuN": function zuN(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -269,15 +213,7 @@
     },
 
     /***/
-    "HjtW":
-    /*!***********************************************************!*\
-      !*** ./src/assets/vendor/bootstrap/css/bootstrap.min.css ***!
-      \***********************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function HjtW(module, exports, __webpack_require__) {
+    "HjtW": function HjtW(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -301,15 +237,7 @@
     },
 
     /***/
-    "Hp/k":
-    /*!********************************************************!*\
-      !*** ./src/assets/vendor/swiper/swiper-bundle.min.css ***!
-      \********************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function HpK(module, exports, __webpack_require__) {
+    "Hp/k": function HpK(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -333,15 +261,7 @@
     },
 
     /***/
-    "JPst":
-    /*!*****************************************************!*\
-      !*** ./node_modules/css-loader/dist/runtime/api.js ***!
-      \*****************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function JPst(module, exports, __webpack_require__) {
+    "JPst": function JPst(module, exports, __webpack_require__) {
       "use strict";
       /*
         MIT License http://www.opensource.org/licenses/mit-license.php
@@ -441,15 +361,7 @@
     },
 
     /***/
-    "LboF":
-    /*!****************************************************************************!*\
-      !*** ./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js ***!
-      \****************************************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function LboF(module, exports, __webpack_require__) {
+    "LboF": function LboF(module, exports, __webpack_require__) {
       "use strict";
 
       var isOldIE = function isOldIE() {
@@ -724,15 +636,7 @@
     },
 
     /***/
-    "UdEQ":
-    /*!********************************************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/assets/vendor/glightbox/css/glightbox.min.css ***!
-      \********************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function UdEQ(module, __webpack_exports__, __webpack_require__) {
+    "UdEQ": function UdEQ(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -768,15 +672,7 @@
     },
 
     /***/
-    "ZnJG":
-    /*!**********************************!*\
-      !*** ./src/assets/css/style.css ***!
-      \**********************************/
-
-    /*! no static exports found */
-
-    /***/
-    function ZnJG(module, exports, __webpack_require__) {
+    "ZnJG": function ZnJG(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -800,15 +696,7 @@
     },
 
     /***/
-    "cdKq":
-    /*!*****************************************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/assets/vendor/swiper/swiper-bundle.min.css ***!
-      \*****************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function cdKq(module, __webpack_exports__, __webpack_require__) {
+    "cdKq": function cdKq(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -844,15 +732,7 @@
     },
 
     /***/
-    "dIde":
-    /*!************************************************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/assets/vendor/bootstrap-icons/bootstrap-icons.css ***!
-      \************************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function dIde(module, __webpack_exports__, __webpack_require__) {
+    "dIde": function dIde(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -888,15 +768,7 @@
     },
 
     /***/
-    "rGPX":
-    /*!*********************************************************!*\
-      !*** ./src/assets/vendor/boxicons/css/boxicons.min.css ***!
-      \*********************************************************/
-
-    /*! no static exports found */
-
-    /***/
-    function rGPX(module, exports, __webpack_require__) {
+    "rGPX": function rGPX(module, exports, __webpack_require__) {
       var api = __webpack_require__(
       /*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */
       "LboF");
@@ -920,15 +792,7 @@
     },
 
     /***/
-    "rOGD":
-    /*!******************************************************************************************************************************************************!*\
-      !*** ./node_modules/css-loader/dist/cjs.js??ref--12-1!./node_modules/postcss-loader/src??embedded!./src/assets/vendor/boxicons/css/boxicons.min.css ***!
-      \******************************************************************************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function rOGD(module, __webpack_exports__, __webpack_require__) {
+    "rOGD": function rOGD(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
