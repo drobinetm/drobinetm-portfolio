@@ -6,4 +6,6 @@ export class Personal {
     age: number;
     degree: string;
     email: string;
+    slogan: string;
+    cvUrl: string;
 }

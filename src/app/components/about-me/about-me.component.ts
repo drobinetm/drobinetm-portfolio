@@ -22,7 +22,7 @@ export class AboutMeComponent implements OnInit {
 
   ngOnInit(): void {
       this.loadJson.loadJSON('./assets/json/about-me.json').subscribe((json) => {
-        this.about = json[0].general;
+        this.about = json[0].about;
         this.personal = json[0].personal;
         this.skills = json[0].skills;
       });
@@ -35,7 +35,7 @@ export class AboutMeComponent implements OnInit {
   }
 
   protected initPersonal(): Personal {
-    return {name: '', website: '', phone: '', city: '', age: 0, degree: '', email: ''};
+    return {name: '', website: '', phone: '', city: '', age: 0, degree: '', email: '', slogan: '', cvUrl: ''};
   }
 
   protected initSkills(): Skills[] {

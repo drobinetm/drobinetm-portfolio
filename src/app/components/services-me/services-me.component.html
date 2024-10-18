@@ -1,14 +1,12 @@
 <section id="services" class="services">
     <div class="container">
-
-        <div class="section-title">
-            <span>My Services</span>
-            <h2>My Services</h2>
+        <div class="section-title  text-lg-start">
+            <span><i class="bi bi-code-slash"></i> My Services</span>
             <p>{{ this.services.description }}</p>
         </div>
 
         <div class="row">
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
                 <div class="icon-box">
                     <div class="icon"><i class="bx bxl-dribbble"></i></div>
                     <h4 class="title"><a href="">Backend</a></h4>
@@ -16,23 +14,23 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
                 <div class="icon-box">
                     <div class="icon"><i class="bx bx-file"></i></div>
                     <h4 class="title"><a href="">Frontend</a></h4>
                     <p class="description">{{ this.services.frontend }}</p>
                 </div>
             </div>
+        </div>
 
-            <div class="col-md-6 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0">
+        <div class="row">
+            <div class="col-md-6 col-lg-6 d-flex align-items-stretch m-auto">
                 <div class="icon-box">
                     <div class="icon"><i class="bx bx-tachometer"></i></div>
                     <h4 class="title"><a href="">DevOps</a></h4>
                     <p class="description">{{ this.services.devops }}</p>
                 </div>
             </div>
-
         </div>
-
     </div>
 </section>

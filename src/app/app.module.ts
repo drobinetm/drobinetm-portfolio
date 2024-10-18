@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -15,26 +15,19 @@ import { BackTopComponent } from './components/back-top/back-top.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ServicesMeComponent } from './components/services-me/services-me.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    PhotoContainerComponent,
-    AboutMeComponent,
-    ResumeComponent,
-    PortfolioComponent,
-    ContactComponent,
-    FooterComponent,
-    BackTopComponent,
-    PageNotFoundComponent,
-    ServicesMeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        HeaderComponent,
+        PhotoContainerComponent,
+        AboutMeComponent,
+        ResumeComponent,
+        PortfolioComponent,
+        ContactComponent,
+        FooterComponent,
+        BackTopComponent,
+        PageNotFoundComponent,
+        ServicesMeComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {LoadJsonService} from '../../services/load-json/load-json.service';
 import {Summary, SummaryData} from '../../models/summary';
 import {Occupation} from '../../models/occupation';
-import {Education} from '../../models/education';
+import {Certification} from '../../models/certification';
 import {Resume} from '../../models/resume';
 
 @Component({
@@ -14,13 +14,13 @@ export class ResumeComponent implements OnInit {
   public resume: Resume = undefined;
   public summary: Summary = undefined;
   public occupations: Occupation[] = undefined;
-  public educations: Education[] = undefined;
+  public certifications: Certification[] = undefined;
 
   constructor(private loadJson: LoadJsonService) {
     this.resume = this.initResume();
     this.summary = this.initSummary();
     this.occupations = this.initOccupation();
-    this.educations = this.initEducation();
+    this.certifications = this.initEducation();
   }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class ResumeComponent implements OnInit {
       this.resume = json[0].general;
       this.summary = json[0].summary;
       this.occupations = json[0].occupation;
-      this.educations = json[0].education;
+      this.certifications = json[0].certification;
     });
   }
 
@@ -50,7 +50,7 @@ export class ResumeComponent implements OnInit {
     return [];
   }
 
-  protected initEducation(): Education[] {
+  protected initEducation(): Certification[] {
     return [];
   }
 }
