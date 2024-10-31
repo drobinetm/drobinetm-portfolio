@@ -4,7 +4,7 @@
   "homepage": "https://drobinetm.github.io/drobinetm-portfolio",
   "scripts": {
     "ng": "ng",
-    "predeploy": "ng build --prod --base-href ./",
+    "predeploy": "ng build --configuration production --base-href ./",
     "deploy": "npx angular-cli-ghpages",
     "start": "ng serve",
     "build": "ng build",
