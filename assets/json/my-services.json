@@ -1,5 +1,5 @@
 [{
-    "description": "My humble services, always keeping in mind professionalism and good work.",
+    "description": "In this section, you'll find a comprehensive summary of the core services I offer as a senior developer, ranging from custom software development and scalable web applications to consulting on system architecture and best practices. This section outlines how I leverage my expertise in backend technologies, database optimization, and API integration to deliver efficient, high-quality solutions tailored to meet the unique needs of each project and client.",
     "backend": "I work from the server side providing the APIs and functionalities required by the applications with which our clients interact.",
     "frontend": "Every view requires a good design, an excellent layout and a good performance for the user experience.",
     "devops": "I work with the new capabilities that AWS services provide. Focused on SNS, SQS and S3. Concepts integrated with CI / CD in Gitlab and deploy to Cloud servers such as Digital Ocean and Bitbucket."

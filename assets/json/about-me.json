@@ -1,6 +1,9 @@
 [{
-    "general": {
-        "description": "My personal data. My skills acquired during these years of work. Learning through effort and sacrifice."
+    "about": {
+        "description": [
+            "I am a developer with +15 years of experience, passionate about creating solutions that are useful, efficient, and easy to maintain. I've worked on a variety of projects, from web applications to more complex systems, and I've learned a lot along the way about optimizing processes, designing APIs, and building systems that truly serve the users. I enjoy collaborating with diverse teams, and I firmly believe in the value of continuous learning and improvement.",
+            "Additionally, I have experience with tools like Docker and Redis, and I strive to apply best practices in development, such as automated testing and continuous integration, to ensure that code is stable and scalable. I really enjoy the process of problem-solving and am always looking for ways to contribute to projects and the team in the best way possible."
+        ]
     },
     "personal": {
         "name": "Diovi Robinet Morales",
@@ -9,79 +12,51 @@
         "city": "La Habana, Cuba",
         "age": 35,
         "degree": "Computer Engineer",
-        "email": "drobinetmorales@gmail.com"
+        "email": "drobinetmorales@gmail.com",
+        "slogan": "I'm a Full Stack Developer",
+        "cvUrl": "https://drive.google.com/file/d/15nKmDbh-vsKLsS8g3_1mOiVnWeGYUIUX/view?usp=drive_link"
     },
     "skills": [{
-        "name": "Html",
-        "value": "100"
-    },{
-        "name": "Angular (+6)",
-        "value": 100
-    },{
-        "name": "Javascript",
-        "value": 100
-    },{
-        "name": "VueJs",
-        "value": 100
-    },{
-        "name": "Css",
-        "value": 98
-    },{
-        "name": "ReactJs",
-        "value": 100
-    },{
-        "name": "C#",
-        "value": 100
-    },{
-        "name": "Laravel (5.6+)",
-        "value": 100
-    },{
-        "name": "Asp .Net",
-        "value": 100
-    },{
-        "name": "Django",
-        "value": 100
-    },{
         "name": "Php",
         "value": 100
     },{
         "name": "Python",
         "value": 100
     },{
+        "name": "C#",
+        "value": 100
+    },{
         "name": "Java",
         "value": 85
     },{
-        "name": "Android",
-        "value": 85
+        "name": "Laravel",
+        "value": 100
+    },{
+        "name": "Django",
+        "value": 100
+    },{
+        "name": "Asp .Net",
+        "value": 100
     },{
         "name": "NodeJs",
-        "value": 90
+        "value": 100
     },{
-        "name": "Symfony",
-        "value": 97
+        "name": "VueJs",
+        "value": 100
     },{
-        "name": "Zend Framework",
-        "value": 90
-    },{
-        "name": "Sql",
-        "value": 98
-    },{
-        "name": "MongoDB",
-        "value": 93
-    },{
-        "name": "GraphQL",
-        "value": 93
+        "name": "ReactJs",
+        "value": 100
     },{
         "name": "MySQL",
         "value": 100
     },{
         "name": "PostgreSQL",
         "value": 100
-    },{
-        "name": "SQL Server",
-        "value": 100
-    },{
-        "name": "SQLite",
-        "value": 100
-    }]
+    }],
+    "social": {
+        "github": "https://github.com/drobinetm",
+        "linkedin": "https://www.linkedin.com/in/diovi-robinet-578782ab",
+        "twitter": "https://x.com/drobinetm",
+        "instagram": "https://www.instagram.com/drobine_t"
+    }
 }]

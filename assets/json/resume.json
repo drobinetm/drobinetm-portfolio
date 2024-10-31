@@ -1,6 +1,6 @@
 [{
   "general": {
-    "description": "Summary of my work done over the years. In these jobs I've been part of great teams of professionals and good people."
+    "description": "In this section, you’ll find a detailed overview of my professional journey, highlighting key roles I’ve held in software development and system architecture. This section showcases my main achievements, relevant projects, and the technical skills I’ve gained and applied in each position, providing a clear view of my growth as a senior developer and my contributions in collaborative, high-performance environments."
   },
   "summary": {
     "name": "Diovi Robinet Morales",
@@ -20,26 +20,81 @@
       "Distributed System Development to register testing on ASTERIX."
     ]
   }],
-  "occupation": [{
-    "title": "Senior Programmer",
-    "date": "2009 - 2011",
-    "place": "Institution of Defense",
+  "occupation": [
+    {
+    "title": "Digital Nomad",
+    "date": "2024 - Present",
+    "place": "Freelance Programmer",
     "data": [
+        "Services of Web Applications Programming.",
+        "Services of DevOps."
+    ]
+  },
+    {
+    "title": "DSPOT SP. Z.0.0",
+    "date": "2019 - 2024",
+    "place": "Full Stack Developer",
+    "data": [
+      "Electronic Commerce Platform.",
+      "Create Payment Intents. Generate Payment Reports.",
+      "Create accounts linked to the business.",
+      "Websockets to consume and link REST API with a bowling alley business.",
+      "Commands created to run the Schedule class from an AWS EC2 instance on a Linux server.",
+      "Configure a Supervisor on the server to monitor the execution of the script or Schedule Class.",
+      "Create Lambda Functions to consume REST API."
+    ]
+  },
+    {
+      "title": "Aqueduct Infrastructure",
+      "date": "2014 - 2019",
+      "place": "Senior Programmer",
+      "data": [
+        "Development of Aqueduct Systems.",
+        "Development of Applications for the management of pipes water.",
+        "Development of tools for ArcGIS map platform."
+      ]
+    },
+    {
+      "title": "Defense Infrastructure",
+      "date": "2009 - 2014",
+      "place": "Senior Programmer",
+      "data": [
         "Application Development for event management in the city.",
         "Platform Development for audio and video management.",
-        "Application Development for software license management."
-    ]
-  },{
-    "title": "Advanced Programming, Course",
-    "date": "2015 - 2015",
-    "place": "Desoft, Development Software",
-    "data": [
-      "Development of Advanced Web Programming Techniques.",
-      "Basic Data Mining Course with PostgreSQL.",
-      "Development of mobile applications with Java ME.",
-      "HTML5 and CSS3 Advanced Course. Responsive applications.",
-      "Course of Good Programming Practices. Advanced Python",
-      "Course of Analysis and optimization of algorithms."
-    ]
-  }]
+        "Platform Development for audio and video management."
+      ]
+    }
+  ],
+  "certification": [
+    {
+      "title": "Data Science: Natural Language Processing (NLP) in Python",
+      "date": "2024",
+      "place": "Udemy (Virtual store for online learning)",
+      "url": "https://www.udemy.com/certificate/UC-9d0f7d49-a665-46f6-b2f9-6246de9eef52/"
+    },
+    {
+      "title": "Laravel 7.x (Foundation)",
+      "date": "2023",
+      "place": "StudySection E-Certification Center",
+      "url": "https://www.studysection.com/users/socialMedia/NjYwOTc0/ZHJvYmluZXRtb3JhbGVzQGdtYWlsLmNvbQ%3D%3D/"
+    },
+    {
+      "title": "Laravel Fullstack Developer Diploma Certificate (Advanced)",
+      "date": "2023",
+      "place": "StudySection E-Certification Center",
+      "url": "https://www.studysection.com/users/socialMedia/NjYzMjEy/ZHJvYmluZXRtb3JhbGVzQGdtYWlsLmNvbQ=="
+    },
+    {
+      "title": "PHP Development Qualification Process",
+      "date": "2023",
+      "place": "Company * IT Consulting Services",
+      "url": "https://drive.google.com/file/d/1mSoO7zliEx6w2nbrxLtDJYXOKWh1eT_1/view?usp=sharing"
+    },
+    {
+      "title": "Python (Basic) Certificate",
+      "date": "2023",
+      "place": "HackerRank",
+      "url": "https://www.hackerrank.com/certificates/932ee41778ed"
+    }
+  ]
 }]
