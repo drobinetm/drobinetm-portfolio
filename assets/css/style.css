@@ -358,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero h1 {
   margin: 0 0 10px 0;
-  font-size: 64px;
+  font-size: 42px;
   font-family: var(--font-family-primary);;
   color: #fff;
 }
