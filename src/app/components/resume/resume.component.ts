@@ -15,6 +15,7 @@ export class ResumeComponent implements OnInit {
   public summary: Summary = undefined;
   public occupations: Occupation[] = undefined;
   public certifications: Certification[] = undefined;
+  public isLoading = true;
 
   constructor(private loadJson: LoadJsonService) {
     this.resume = this.initResume();
@@ -29,6 +30,8 @@ export class ResumeComponent implements OnInit {
       this.summary = json[0].summary;
       this.occupations = json[0].occupation;
       this.certifications = json[0].certification;
+
+      setTimeout(() => this.isLoading = false, 1000);
     });
   }
 

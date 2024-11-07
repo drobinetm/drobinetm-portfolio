@@ -11,54 +11,58 @@ import {environment} from '../../../environments/environment';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  public personal: Personal = undefined;
-  public social: Social = undefined;
+    public personal: Personal = undefined;
+    public social: Social = undefined;
+    public isLoading = true;
 
-  constructor(private loadJson: LoadJsonService) {
+    constructor(private loadJson: LoadJsonService) {
     this.personal = this.initPersonal();
     this.social = this.initSocial();
-  }
+    }
 
-  ngOnInit(): void {
-    this.loadJson.loadJSON('./assets/json/about-me.json').subscribe((json) => {
-      this.personal = json[0].personal;
-      this.social = json[0].social;
-    });
-  }
+    ngOnInit(): void {
+        this.loadJson.loadJSON('./assets/json/about-me.json').subscribe((json) => {
+            this.personal = json[0].personal;
+            this.social = json[0].social;
 
-  protected initPersonal(): Personal {
+            setTimeout(() => this.isLoading = false, 1000);
+        });
+    }
+
+    protected initPersonal(): Personal {
     return {name: '', website: '', phone: '', city: '', age: 0, degree: '', email: '', slogan: '', cvUrl: ''};
-  }
+    }
 
-  protected initSocial(): Social {
+    protected initSocial(): Social {
     return {github: '', linkedin: '', twitter: '', instagram: ''};
-  }
+    }
 
-  public sendEmail(e: Event) {
-    e.preventDefault();
+    // tslint:disable-next-line:typedef
+    public sendEmail(e: Event) {
+        e.preventDefault();
 
-    const templateId: string = environment.templateId;
-    const serviceId: string = environment.serviceId;
-    const publicKey: string = environment.publicKey;
+        const templateId: string = environment.templateId;
+        const serviceId: string = environment.serviceId;
+        const publicKey: string = environment.publicKey;
 
-    emailjs
-        .sendForm(serviceId, templateId, e.target as HTMLFormElement, {
-          publicKey: publicKey
-        })
-        .then(
-            () => {
-              (document.getElementById('sent-message') as HTMLFormElement).style.display = 'block';
-              (document.getElementById('contact-form') as HTMLFormElement).reset();
+        emailjs
+            .sendForm(serviceId, templateId, e.target as HTMLFormElement, {
+                publicKey
+            })
+            .then(
+                () => {
+                        (document.getElementById('sent-message') as HTMLFormElement).style.display = 'block';
+                        (document.getElementById('contact-form') as HTMLFormElement).reset();
 
-              setTimeout(() => {
-                (document.getElementById('sent-message') as HTMLFormElement).style.display = 'none';
-              }, 3000);
+                        setTimeout(() => {
+                        (document.getElementById('sent-message') as HTMLFormElement).style.display = 'none';
+                        }, 3000);
 
-              console.log('SUCCESS!');
-            },
-            (error) => {
-              console.log('FAILED...', (error as EmailJSResponseStatus).text);
-            },
-        );
-  }
+                        console.log('SUCCESS!');
+                },
+                (error) => {
+                  console.log('FAILED...', (error as EmailJSResponseStatus).text);
+                },
+            );
+        }
 }

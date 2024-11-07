@@ -1,36 +1,42 @@
 <section id="services" class="services">
     <div class="container">
-        <div class="section-title  text-lg-start">
-            <span><i class="bi bi-code-slash"></i> My Services</span>
-            <p>{{ this.services.description }}</p>
+        <div *ngIf="isLoading; else dataTemplate">
+            <ngx-skeleton-loader count="1" appearance="line" animation="pulse" loadingText="Loading..."  [theme]="{width: '250px', left: '37%', marginTop: '20px'}"></ngx-skeleton-loader>
         </div>
 
-        <div class="row">
-            <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                    <h4 class="title"><a href="">Backend</a></h4>
-                    <p class="description">{{ this.services.backend }}</p>
+        <ng-template #dataTemplate>
+            <div class="section-title  text-lg-start">
+                <span><i class="bi bi-code-slash"></i> My Services</span>
+                <p>{{ this.services.description }}</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                        <h4 class="title"><a href="">Backend</a></h4>
+                        <p class="description">{{ this.services.backend }}</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-file"></i></div>
+                        <h4 class="title"><a href="">Frontend</a></h4>
+                        <p class="description">{{ this.services.frontend }}</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-file"></i></div>
-                    <h4 class="title"><a href="">Frontend</a></h4>
-                    <p class="description">{{ this.services.frontend }}</p>
+            <div class="row">
+                <div class="col-md-6 col-lg-6 d-flex align-items-stretch m-auto">
+                    <div class="icon-box">
+                        <div class="icon"><i class="bx bx-tachometer"></i></div>
+                        <h4 class="title"><a href="">DevOps</a></h4>
+                        <p class="description">{{ this.services.devops }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-lg-6 d-flex align-items-stretch m-auto">
-                <div class="icon-box">
-                    <div class="icon"><i class="bx bx-tachometer"></i></div>
-                    <h4 class="title"><a href="">DevOps</a></h4>
-                    <p class="description">{{ this.services.devops }}</p>
-                </div>
-            </div>
-        </div>
+        </ng-template>
     </div>
 </section>

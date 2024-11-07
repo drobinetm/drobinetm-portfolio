@@ -11,6 +11,7 @@ import {Social} from '../../models/social';
 export class PhotoContainerComponent implements OnInit {
   public personal: Personal = undefined;
   public social: Social = undefined;
+  public isLoading = true;
 
   constructor(private loadJson: LoadJsonService) {
     this.personal = this.initPersonal();
@@ -21,6 +22,8 @@ export class PhotoContainerComponent implements OnInit {
     this.loadJson.loadJSON('./assets/json/about-me.json').subscribe((json) => {
       this.personal = json[0].personal;
       this.social = json[0].social;
+
+      setTimeout(() => this.isLoading = false, 1000);
     });
   }
 
