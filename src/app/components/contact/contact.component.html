@@ -1,7 +1,7 @@
 <section id="contact" class="contact">
     <div class="container">
         <div *ngIf="isLoading; else dataTemplate">
-            <ngx-skeleton-loader count="1" appearance="line" animation="pulse" loadingText="Loading..."  [theme]="{width: '250px', left: '37%', marginTop: '20px'}"></ngx-skeleton-loader>
+            <ngx-skeleton-loader count="1" appearance="line" animation="pulse" loadingText="Loading..."  [theme]="{width: '250px', left: '37%', marginTop: '20px', background: '#29323c'}"></ngx-skeleton-loader>
         </div>
 
         <ng-template #dataTemplate>
