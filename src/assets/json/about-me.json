@@ -14,7 +14,7 @@
         "degree": "Computer Engineer",
         "email": "drobinetmorales@gmail.com",
         "slogan": "I'm a Full Stack Developer",
-        "cvUrl": "https://drive.google.com/file/d/15nKmDbh-vsKLsS8g3_1mOiVnWeGYUIUX/view?usp=drive_link"
+        "cvUrl": "https://drive.google.com/file/d/1T7HSX6OaAtgTCk3UHx-pMWxz5MJzLRNO/view?usp=drive_link"
     },
     "skills": [{
         "name": "Php",
@@ -27,24 +27,60 @@
         "value": 100
     },{
         "name": "Java",
-        "value": 85
+        "value": 91
     },{
         "name": "Laravel",
+        "value": 100
+    },{
+        "name": "CakePHP",
+        "value": 100
+    },{
+        "name": "Symfony",
+        "value": 100
+    },{
+        "name": "Zend Framework",
         "value": 100
     },{
         "name": "Django",
         "value": 100
     },{
+        "name": "FastAPI",
+        "value": 100
+    },{
         "name": "Asp .Net",
+        "value": 100
+    },{
+        "name": "Asp .Net Core",
         "value": 100
     },{
         "name": "NodeJs",
         "value": 100
     },{
-        "name": "VueJs",
+        "name": "Javascript",
         "value": 100
     },{
+        "name": "NestJs",
+        "value": 100
+    },{
+        "name": "NextJs",
+        "value": 100
+    },{
+        "name": "AWS",
+        "value": 100
+    },{
+        "name": "AngularJs",
+        "value": 90
+    },{
+        "name": "VueJs",
+        "value": 85
+    },{
         "name": "ReactJs",
+        "value": 85
+    },{
+        "name": "MongoDB",
+        "value": 100
+    },{
+        "name": "DynamoDB",
         "value": 100
     },{
         "name": "MySQL",

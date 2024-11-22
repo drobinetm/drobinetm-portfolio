@@ -12,6 +12,7 @@
     --color-background-dark: #2a323c;
     --color-background-gray: #838490;
     --color-background-blue: #355073;
+    --color-background-yellow-slow: #8f863b;
     --color-border: #eef0f2;
     --color-hover: #242b34;
     --font-family-primary: "onest-latin", system-ui, sans-serif;
@@ -121,6 +122,8 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 .navbar {
   padding: 0;
+  border: 1px solid #696060;
+  border-radius: 50px;
 }
 
 .navbar ul {
@@ -370,6 +373,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
+  background-color: #393434cc;
+  padding: 10px;
+  border-radius: 50px;
 }
 
 #hero .hero-container .social-links {
@@ -578,6 +584,7 @@ section {
   border-radius: 0 20px 0 20px;
   padding: 0 10px 0 10px;
   margin-top: 40px;
+  border: 1px solid #27313e;
 }
 
 .about .content {
@@ -706,7 +713,7 @@ section {
   width: 1px;
   height: 10px;
   transition: .9s;
-  background-color: var(--color-background-dark);
+  background-color: var(--color-background-yellow-slow);
 }
 
 .about a.download-cv {
@@ -833,6 +840,7 @@ section {
   background-color: #21272f;
   border-radius: 0 20px 0 20px;
   padding: 0 10px 0 10px;
+  border: 1px solid #27313e;
 }
 
 .services .icon-box {
