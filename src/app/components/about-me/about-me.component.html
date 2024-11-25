@@ -2,9 +2,9 @@
     <div class="container">
         <div class="section-title text-lg-start">
             <span><i class="bi bi-person-circle"></i> About Me</span>
-            <p>{{ 'about.description.text_1' | translate }}</p>
+            <p>{{ about.description[0] }}</p>
             <br/>
-            <p>{{ 'about.description.text_2' | translate }}</p>
+            <p>{{ about.description[1] }}</p>
         </div>
 
         <div class="row">
@@ -28,8 +28,8 @@
         <div class="class row">
             <div class="col-lg-4 p-4 m-auto">
                 <div class="text-center">
-                    <a class="download-cv" href="{{ this.cvUrl }}" target="_blank">
-                        <i class="bi bi-download"></i> {{ 'downloadCv' | translate }}
+                    <a class="download-cv" href="{{ personal.cvUrl }}" target="_blank">
+                        <i class="bi bi-download"></i> Download CV
                     </a>
                 </div>
             </div>

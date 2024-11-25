@@ -23,8 +23,6 @@
     "@angular/platform-browser-dynamic": "^18.2.8",
     "@angular/router": "^18.2.8",
     "@emailjs/browser": "^4.4.1",
-    "@ngx-translate/core": "^16.0.3",
-    "@ngx-translate/http-loader": "^16.0.0",
     "ngx-skeleton-loader": "^9.0.0",
     "rxjs": "^6.5.3",
     "tslib": "^2.0.0",
