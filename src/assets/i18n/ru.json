@@ -1,0 +1,105 @@
+{
+  "select_language": "Выберите язык",
+  "buttons": {
+    "en": "Английский",
+    "ru": "Русский",
+    "es": "Испанский"
+  },
+  "about": {
+        "description": {
+            "text_1": "I am a developer with +15 years of experience, passionate about creating solutions that are useful, efficient, and easy to maintain. I've worked on a variety of projects, from web applications to more complex systems, and I've learned a lot along the way about optimizing processes, designing APIs, and building systems that truly serve the users. I enjoy collaborating with diverse teams, and I firmly believe in the value of continuous learning and improvement.",
+            "text_2": "Additionally, I have experience with tools like Docker and Redis, and I strive to apply best practices in development, such as automated testing and continuous integration, to ensure that code is stable and scalable. I really enjoy the process of problem-solving and am always looking for ways to contribute to projects and the team in the best way possible."
+        }
+    },
+  "personal": {
+        "name": "Diovi Robinet Morales",
+        "website": "https://drobinetm.github.io",
+        "phone": "+53 5505 6236",
+        "city": "La Habana, Cuba",
+        "age": 35,
+        "degree": "Computer Engineer",
+        "email": "drobinetmorales@gmail.com",
+        "slogan": "I'm a Full Stack Developer",
+        "cvUrl": "https://drive.google.com/file/d/1T7HSX6OaAtgTCk3UHx-pMWxz5MJzLRNO/view?usp=drive_link"
+    },
+  "skills": [{
+        "name": "Php",
+        "value": "100"
+    },{
+        "name": "Python",
+        "value": "100"
+    },{
+        "name": "C#",
+        "value": "100"
+    },{
+        "name": "Java",
+        "value": "91"
+    },{
+        "name": "Laravel",
+        "value": "100"
+    },{
+        "name": "CakePHP",
+        "value": "100"
+    },{
+        "name": "Symfony",
+        "value": "100"
+    },{
+        "name": "Zend Framework",
+        "value": "100"
+    },{
+        "name": "Django",
+        "value": "100"
+    },{
+        "name": "FastAPI",
+        "value": "100"
+    },{
+        "name": "Asp .Net",
+        "value": "100"
+    },{
+        "name": "Asp .Net Core",
+        "value": "100"
+    },{
+        "name": "NodeJs",
+        "value": "100"
+    },{
+        "name": "Javascript",
+        "value": "100"
+    },{
+        "name": "NestJs",
+        "value": "100"
+    },{
+        "name": "NextJs",
+        "value": "100"
+    },{
+        "name": "AWS",
+        "value": "100"
+    },{
+        "name": "AngularJs",
+        "value": "90"
+    },{
+        "name": "VueJs",
+        "value": "85"
+    },{
+        "name": "ReactJs",
+        "value": "85"
+    },{
+        "name": "MongoDB",
+        "value": "100"
+    },{
+        "name": "DynamoDB",
+        "value": "100"
+    },{
+        "name": "MySQL",
+        "value": "100"
+    },{
+        "name": "PostgreSQL",
+        "value": "100"
+    }],
+  "social": {
+        "github": "https://github.com/drobinetm",
+        "linkedin": "https://www.linkedin.com/in/diovi-robinet-578782ab",
+        "twitter": "https://x.com/drobinetm",
+        "instagram": "https://www.instagram.com/drobine_t"
+    },
+  "downloadCv": "Download CV"
+}

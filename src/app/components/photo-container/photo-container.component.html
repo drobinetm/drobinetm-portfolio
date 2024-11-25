@@ -1,22 +1,16 @@
 <section id="hero">
     <div class="hero-container">
-        <div *ngIf="isLoading; else dataTemplate">
-            <ngx-skeleton-loader count="1" appearance="line" animation="pulse" loadingText="Loading..."  [theme]="{width: '250px', background: '#29323c'}"></ngx-skeleton-loader>
+        <h1>{{ 'personal.name' | translate }}</h1>
+        <h2>{{ 'personal.slogan' | translate }}</h2>
+        <div class="social-links">
+            <a href="{{'social.twitter' | translate }}" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="{{'social.instagram' | translate }}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="{{'social.linkedin' | translate }}" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            <a href="{{ 'social.github' | translate }}" target="_blank" class="github"><i class="bi bi-github"></i></a>
         </div>
-
-        <ng-template #dataTemplate>
-            <h1>{{ this.personal.name }}</h1>
-            <h2>{{ this.personal.slogan }}</h2>
-            <div class="social-links">
-                <a href="{{this.social.twitter }}" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
-                <a href="{{this.social.instagram }}" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-                <a href="{{this.social.linkedin }}" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
-                <a href="{{this.social.github }}" target="_blank" class="github"><i class="bi bi-github"></i></a>
-            </div>
-            <a href="#about" class="btn-scroll scrollto" title="Scroll Down">
-                <i class="bx bx-chevron-down"></i>
-            </a>
-        </ng-template>
+        <a href="#about" class="btn-scroll scrollto" title="Scroll Down">
+            <i class="bx bx-chevron-down"></i>
+        </a>
     </div>
 </section>
 
