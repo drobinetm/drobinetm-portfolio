@@ -1,0 +1,8 @@
+<div class="language-selector">
+    <i class="bi bi-globe" (click)="toggleModal()" title=""></i>
+    <app-modal
+            *ngIf="isModalOpen"
+            (languageSelected)="handleLanguageSelected($event)">
+    </app-modal>
+</div>
+
