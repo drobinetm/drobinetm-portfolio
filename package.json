@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "predeploy": "ng build --configuration production --base-href ./",
-    "deploy": "npx angular-cli-ghpages",
+    "deploy": "npx angular-cli-ghpages --no-silent",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
