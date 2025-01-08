@@ -30,7 +30,8 @@ export class AboutMeComponent implements OnInit {
 
   protected initAbout(): About {
     return {
-      description: ''
+      description: '',
+      imageUrl: ''
     };
   }
 

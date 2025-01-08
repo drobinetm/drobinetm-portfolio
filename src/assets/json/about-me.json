@@ -3,7 +3,8 @@
         "description": [
             "I am a developer with +15 years of experience, passionate about creating solutions that are useful, efficient, and easy to maintain. I've worked on a variety of projects, from web applications to more complex systems, and I've learned a lot along the way about optimizing processes, designing APIs, and building systems that truly serve the users. I enjoy collaborating with diverse teams, and I firmly believe in the value of continuous learning and improvement.",
             "Additionally, I have experience with tools like Docker and Redis, and I strive to apply best practices in development, such as automated testing and continuous integration, to ensure that code is stable and scalable. I really enjoy the process of problem-solving and am always looking for ways to contribute to projects and the team in the best way possible."
-        ]
+        ],
+        "imageUrl": "assets/img/me.jpg"
     },
     "personal": {
         "name": "Diovi Robinet Morales",

@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BackTopComponent } from './components/back-top/back-top.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ServicesMeComponent } from './components/services-me/services-me.component';
+import {TimelineComponent} from "./components/timeline/timeline.component";
 
 @NgModule({ declarations: [
         AppComponent,
@@ -34,6 +35,7 @@ import { ServicesMeComponent } from './components/services-me/services-me.compon
         BrowserModule,
         AppRoutingModule,
         NgxSkeletonLoaderModule,
+        TimelineComponent,
     ],
     providers: [provideHttpClient(withInterceptorsFromDi())]
 })

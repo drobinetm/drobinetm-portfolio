@@ -67,6 +67,13 @@
   ],
   "certification": [
     {
+      "title": "Laravel Developer Certification",
+      "date": "2025",
+      "place": "Certification for Laravel",
+      "url": "#",
+      "customClass": "timeline-important"
+    },
+    {
       "title": "Data Science: Natural Language Processing (NLP) in Python",
       "date": "2024",
       "place": "Udemy (Virtual store for online learning)",

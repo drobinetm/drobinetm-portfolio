@@ -1,39 +1,30 @@
-<section id="resume" class="resume">
-    <div class="container">
+<section id="resume" class="resume section-panel-container" style="padding: 0 !important;">
+    <div class="container" style="padding: 0 !important;">
         <div *ngIf="isLoading; else dataTemplate">
             <ngx-skeleton-loader count="1" appearance="line" animation="pulse" loadingText="Loading..."  [theme]="{width: '250px', left: '37%', marginTop: '20px', background: '#29323c'}"></ngx-skeleton-loader>
         </div>
 
         <ng-template #dataTemplate>
-            <div class="section-title text-lg-start">
-                <span><i class="bi bi-file-code"></i> My Resume</span>
-                <p>{{ this.resume.description }}</p>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3 class="resume-title">Certifications/Courses</h3>
-                    <div class="resume-item" *ngFor="let certification of certifications; let i = index">
-                        <h4>{{ certification.title }}</h4>
-                        <h5>{{ certification.date }}</h5>
-                        <p><em>{{ certification.place }}</em></p>
-                        <a  href="{{ certification.url }}" target="_blank">
-                            <i class="bi bi-eye"></i> View
-                        </a>
+            <div class="resume-title-background">
+                <div style="background: #000000a1; position: absolute; left: 0; bottom: 0;">
+                    <div class="section-description section-description-glass">
+                        <div class="section-title" style="text-align: center !important;padding-bottom: 30px;">
+                            <span class="span-title"><i class="bi bi-file-code"></i> My Resume</span>
+                        </div>
+                        <p>{{ this.resume.description }}</p>
                     </div>
                 </div>
+            </div>
+
+            <div class="row mt-5 m-auto">
+                <div class="col-lg-6">
+                    <h3 class="resume-title">Certifications/Courses</h3>
+                    <app-timeline [timelineItems]="this.certifications"></app-timeline>
+                </div>
+
                 <div class="col-lg-6">
                     <h3 class="resume-title">Professional Experience</h3>
-                    <div class="resume-item" *ngFor="let occupation of occupations; let i = index">
-                        <h4>{{ occupation.title }}</h4>
-                        <h5>{{ occupation.date }}</h5>
-                        <p><em>{{ occupation.place }}</em></p>
-                        <ul>
-                            <li *ngFor="let description of occupation.data; let i = index">
-                                {{ description }}
-                            </li>
-                        </ul>
-                    </div>
+                    <app-timeline [timelineItems]="this.occupations"></app-timeline>
                 </div>
             </div>
         </ng-template>

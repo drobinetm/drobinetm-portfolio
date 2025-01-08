@@ -6,34 +6,30 @@
 
         <ng-template #dataTemplate>
             <div class="section-title  text-lg-start">
-                <span><i class="bi bi-code-slash"></i> My Services</span>
-                <p>{{ this.services.description }}</p>
+                <div style="text-align: center !important;">
+                    <span class="span-title"><i class="bi bi-code-slash"></i> My Services</span>
+                </div>
+                <div class="section-description section-description-glass">
+                    <p>{{ this.services.description }}</p>
+                </div>
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                <div class="col-md-12 icon-box-container">
+                    <div class="icon-box" style="height: 77%;">
+                        <i class="bx bxl-dribbble"></i>
                         <h4 class="title">Backend</h4>
                         <p class="description">{{ this.services.backend }}</p>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch">
                     <div class="icon-box">
-                        <div class="icon"><i class="bx bx-file"></i></div>
-                        <h4 class="title">Frontend</h4>
-                        <p class="description">{{ this.services.frontend }}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 col-lg-6 d-flex align-items-stretch m-auto">
-                    <div class="icon-box">
-                        <div class="icon"><i class="bx bx-tachometer"></i></div>
+                        <i class="bx bx-tachometer"></i>
                         <h4 class="title">DevOps</h4>
                         <p class="description">{{ this.services.devops }}</p>
+                    </div>
+                    <div class="icon-box" style="height: 77%;">
+                        <i class="bx bx-file"></i>
+                        <h4 class="title">Frontend</h4>
+                        <p class="description">{{ this.services.frontend }}</p>
                     </div>
                 </div>
             </div>

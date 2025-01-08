@@ -2,5 +2,7 @@ export class Occupation {
     title: string;
     date: string;
     place: string;
-    data: string;
+    customClass: string;
+    url?: string;
+    data?: string;
 }

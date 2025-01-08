@@ -1,0 +1,29 @@
+<div class="container">
+    <ul class="timeline">
+        <li *ngFor="let item of timelineItems">
+            <div class="timeline-badge"></div>
+            <div class="timeline-panel {{ item.customClass }}">
+                <div class="timeline-heading">
+                    <h4 class="timeline-title">{{ item.title }}</h4>
+                    <h5 class="timeline-place">{{ item.place }}</h5>
+                    <p *ngIf="item.date">
+                        <small class="text-muted" style="color: #ffffff9e !important; font-size: 12px; font-weight: bold;">
+                            <i class="bi bi-calendar-check"></i> {{ item.date }}
+                        </small>
+                    </p>
+                </div>
+                <div class="timeline-body">
+                    <ul *ngIf="item.data">
+                        <li *ngFor="let description of item.data; let i = index">
+                            {{ description }}
+                        </li>
+                    </ul>
+                    <a *ngIf="!item.data" href="{{ item.url }}" target="_blank">
+                        <i class="bi bi-eye"></i> View Certification
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
