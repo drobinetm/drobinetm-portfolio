@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
+import ProjectsSection from '../components/sections/ProjectsSection.astro';
+import SkillsSection from '../components/sections/SkillsSection.astro';
+import ResumeSection from '../components/sections/ResumeSection.astro';
+import ServicesSection from '../components/sections/ServicesSection.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import Footer from '../components/Footer.astro';
+
+import { getCollection } from 'astro:content';
+
+const [profile] = await getCollection('portfolio');
+const data = profile.data;
+---
+<BaseLayout title="Portfolio" navigation={data.navigation}>
+  <div class="relative overflow-hidden flex flex-col">
+    <HeroSection hero={data.hero} />
+    <AboutSection about={data.about} />
+    <ProjectsSection projects={data.projects} />
+    <SkillsSection skills={data.skills} />
+    <ResumeSection resume={data.resume} />
+    <ServicesSection services={data.services} />
+    <ContactSection contact={data.contact} />
+    <Footer footer={data.footer} />
+  </div>
+</BaseLayout>

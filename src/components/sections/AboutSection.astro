@@ -1,0 +1,54 @@
+---
+import IconInfo from '../IconInfo.astro';
+
+import 'aos/dist/aos.css';
+const { about } = Astro.props;
+---
+<section id="about" data-aos="fade-in" data-aos-delay="300" class="px-4 py-8 bg-[var(--p-navy-28)]">
+  <div class="max-w-[1155px] mx-auto">
+    <div class="relative w-full rounded-[5px] overflow-hidden border border-[#5a95c180] bg-[linear-gradient(315deg,rgba(50,111,225,0.25)_0%,rgba(45,46,35,0.1)_100%)]">
+      <div class="p-7 flex flex-col lg:flex-row gap-8">
+        <div class="flex-1 flex flex-col gap-6">
+          <div class="w-fit gap-[9px] h-11 flex items-center rounded-[50px] border px-4" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
+            <IconInfo class="w-4 h-4" style="color: var(--p-text);" />
+            <span class="font-[Rajdhani] font-bold text-base leading-[26px] whitespace-nowrap" style="color: var(--p-text);">
+              {about.badge}
+            </span>
+          </div>
+
+          <div class="prose prose-lg font-[Rajdhani] font-normal text-base text-justify leading-[26px] whitespace-pre-line" style="color: var(--p-text-muted);">
+            {about.text}
+          </div>
+
+          <div class="w-[247px] gap-[7px] px-3.5 py-2 rounded-[50px] border flex items-center mt-auto" style="background: var(--p-nav-pill-bg); border-color: var(--p-border);">
+            <a
+              href="#contact"
+              class="flex flex-col w-[68px] items-center justify-center p-2.5 h-[26px] rounded-[40px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1] transition-colors duration-200"
+              style="background: var(--p-accent); color: var(--p-text-on-accent);"
+              onmouseover="this.style.background='var(--p-accent-light)';"
+              onmouseout="this.style.background='var(--p-accent)';"
+            >
+              <span class="font-[Rajdhani] font-bold text-[10px] leading-[26px] whitespace-nowrap" style="color: var(--p-text-on-accent);">
+                {about.hireCtaLabel}
+              </span>
+            </a>
+
+            <span class="font-[Rajdhani] font-bold text-xs whitespace-nowrap" style="color: var(--p-accent);">
+              {about.availabilityText}
+            </span>
+          </div>
+        </div>
+
+        <div class="flex-shrink-0 relative">
+          <img
+            class="w-full max-w-[353px] h-auto border border-[#77a6c066] rounded-[10px] object-cover"
+            alt="About image"
+            src={about.image}
+            loading="lazy"
+          />
+          <div class="absolute inset-0 rounded-[10px] max-w-[353px] bg-[rgba(7,58,105,0.45)] pointer-events-none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,531 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* ==========================================================================
+   Design Tokens — Portfolio Color Palette
+   All raw colors are defined here as CSS custom properties.
+   Use these variables throughout the project; avoid hardcoding hex values.
+
+   Naming convention:
+     --p-<role>        → primitive color
+     --p-<role>-<mod>  → variant (light, dark, muted, border, …)
+   ========================================================================== */
+/* ==========================================================================
+   Dark theme (default) — applied when <html> has no theme class or has .dark
+   ========================================================================== */
+:root,
+html.dark {
+  /* Base backgrounds */
+  --p-base:          #020103; /* body / navbar */
+  --p-base-nav:      #020103cc; /* navbar w/ blur overlay */
+
+  /* Surface layers */
+  --p-surface:       #181725; /* cards, modals, pills */
+  --p-surface-alt:   #202738; /* inputs, form fields */
+  --p-surface-pill:  #1817252e; /* pill buttons (low opacity) */
+
+  /* Navy — section backgrounds */
+  --p-navy:          #073a69; /* full opacity reference */
+  --p-navy-10:       #073a691a; /* 10% — service cards */
+  --p-navy-20:       #073a6933; /* 20% — services / skills bg */
+  --p-navy-28:       #073a6947; /* 28% — resume cards */
+  --p-navy-30:       #073a694c; /* 30% — projects bg */
+  --p-navy-38:       #073a6961; /* 38% — glow blur */
+
+  /* Accent (retro blue) */
+  --p-accent:        #5a95c1; /* primary CTA, borders, active states */
+  --p-accent-light:  #77a6c0; /* subtle borders */
+  --p-accent-deep:   #0c4a80; /* skill bar fill */
+  --p-accent-link:   #326fe1; /* inline links */
+
+  /* Hero specific */
+  --p-hero-bg:       #0a1628;
+  --p-hero-glow:     #00d9ff;
+
+  /* Text */
+  --p-text:          #ffffff;
+  --p-text-muted:    #ffffffb2; /* body copy */
+  --p-text-subtle:   #b5b6b8;  /* placeholders, secondary labels */
+  --p-text-on-accent:#181725;  /* text on accent buttons */
+
+  /* Borders */
+  --p-border:        #ffffff26; /* generic transparent border */
+  --p-border-pill:   #b5b6b833; /* badge/pill border */
+  --p-border-nav:    #ffffff12; /* navbar bottom border */
+
+  /* Footer */
+  --p-footer-bg:     #18172566;
+
+  /* Header gradient */
+  --p-header-gradient: linear-gradient(135deg,#0a1628 0%,#0d1b2a 50%,#0a1628 100%);
+  --p-nav-border:    rgba(90,149,193,0.25);
+  --p-nav-bg:        rgba(7,58,105,0.15);
+  --p-nav-pill-bg:   #1817252e;
+  --p-nav-pill-border: #ffffff26;
+  --p-section-badge-bg: rgba(255,255,255,0.1);
+  --p-section-badge-border: #b5b6b833;
+  --p-services-bg: #073a6933;
+  --p-services-glow: #073a6961;
+  --p-services-card-bg: #073a691a;
+  --p-services-card-border: #77a6c0;
+  --p-service-icon-filter: none;
+  --p-project-overlay-bg: linear-gradient(180deg, rgba(7, 20, 40, 0.18) 0%, rgba(2, 6, 23, 0.62) 100%);
+  --p-skill-card-bg: #2435457d;
+  --p-skill-card-border: #5a95c1;
+  --p-resume-panel-bg: #2b759652;
+  --p-resume-panel-border: #2b7596;
+  --p-resume-panel-arrow: #007596;
+  --p-resume-panel-arrow-inner: #0b485c;
+  --p-resume-important-bg: #002632;
+  --p-resume-important-arrow-border: #0b485c;
+  --p-resume-button-bg: #073443;
+  --p-resume-button-border: #326776;
+  --p-resume-button-hover-bg: #15617d;
+  --p-resume-button-hover-border: #3a99b7;
+  --p-resume-card-bg: #073a6947;
+  --p-resume-card-border: #5a95c180;
+  --p-resume-hero-card-bg: #073a6947;
+  --p-resume-hero-card-border: #5a95c1;
+  --p-resume-on-image-text: #ffffff;
+  --p-resume-on-image-text-muted: #ffffffb2;
+  --p-resume-overlay-top: linear-gradient(0deg,rgba(2,1,3,1) 0%,rgba(7,58,105,0.46) 100%);
+  --p-resume-overlay-bottom: linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(5,2,8,1) 100%);
+}
+
+/* ==========================================================================
+   Light theme — applied when <html> has .light class
+   ========================================================================== */
+html.light {
+  /* Base backgrounds */
+  --p-base:          #f0f4f8;
+  --p-base-nav:      #f0f4f8cc;
+
+  /* Surface layers */
+  --p-surface:       #ffffff;
+  --p-surface-alt:   #e8edf3;
+  --p-surface-pill:  #dce5f029;
+
+  /* Navy — section backgrounds */
+  --p-navy:          #3b82c4;
+  --p-navy-10:       #3b82c41a;
+  --p-navy-20:       #3b82c433;
+  --p-navy-28:       #3b82c447;
+  --p-navy-30:       #3b82c44c;
+  --p-navy-38:       #3b82c461;
+
+  /* Accent (retro blue) */
+  --p-accent:        #1a5fa8;
+  --p-accent-light:  #3b82c4;
+  --p-accent-deep:   #0c4a80;
+  --p-accent-link:   #1a56d6;
+
+  /* Hero specific */
+  --p-hero-bg:       #ddeaf7;
+  --p-hero-glow:     #0066cc;
+
+  /* Text */
+  --p-text:          #0d1117;
+  --p-text-muted:    #0d1117b2;
+  --p-text-subtle:   #4a5568;
+  --p-text-on-accent:#ffffff;
+
+  /* Borders */
+  --p-border:        rgba(74,85,104,0.22);
+  --p-border-pill:   rgba(74,85,104,0.28);
+  --p-border-nav:    rgba(74,85,104,0.18);
+
+  /* Footer */
+  --p-footer-bg:     #ffffff66;
+
+  /* Header gradient */
+  --p-header-gradient: linear-gradient(135deg,#c7ddf5 0%,#ddeaf7 50%,#c7ddf5 100%);
+  --p-nav-border:    rgba(74,85,104,0.24);
+  --p-nav-bg:        rgba(59,130,196,0.12);
+  --p-nav-pill-bg:   rgba(59,130,196,0.1);
+  --p-nav-pill-border: rgba(74,85,104,0.24);
+  --p-section-badge-bg: rgba(255,255,255,0.68);
+  --p-section-badge-border: rgba(74,85,104,0.28);
+  --p-services-bg: #d7e8f8;
+  --p-services-glow: rgba(116,170,221,0.35);
+  --p-services-card-bg: rgba(199,221,245,0.72);
+  --p-services-card-border: rgba(74,85,104,0.24);
+  --p-service-icon-filter: brightness(0) saturate(100%) invert(36%) sepia(18%) saturate(575%) hue-rotate(176deg) brightness(92%) contrast(88%);
+  --p-project-overlay-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(40, 64, 96, 0.52) 100%);
+  --p-skill-card-bg: rgba(199,221,245,0.72);
+  --p-skill-card-border: rgba(74,85,104,0.24);
+  --p-resume-panel-bg: rgba(207,227,247,0.82);
+  --p-resume-panel-border: rgba(74,85,104,0.28);
+  --p-resume-panel-arrow: rgba(74,85,104,0.28);
+  --p-resume-panel-arrow-inner: rgba(207,227,247,0.82);
+  --p-resume-important-bg: rgba(123,171,220,0.92);
+  --p-resume-important-arrow-border: rgba(74,85,104,0.4);
+  --p-resume-button-bg: rgba(219,233,247,0.92);
+  --p-resume-button-border: rgba(74,85,104,0.32);
+  --p-resume-button-hover-bg: rgba(199,221,245,0.98);
+  --p-resume-button-hover-border: rgba(74,85,104,0.42);
+  --p-resume-card-bg: rgba(199,221,245,0.74);
+  --p-resume-card-border: rgba(74,85,104,0.24);
+  --p-resume-hero-card-bg: rgba(108, 154, 205, 0.82);
+  --p-resume-hero-card-border: rgba(74,85,104,0.24);
+  --p-resume-on-image-text: #fdfefe;
+  --p-resume-on-image-text-muted: rgba(24,37,56,0.96);
+  --p-resume-overlay-top: linear-gradient(0deg,rgba(240,244,248,0.78) 0%,rgba(221,234,247,0.3) 100%);
+  --p-resume-overlay-bottom: linear-gradient(180deg,rgba(240,244,248,0) 0%,rgba(240,244,248,0.82) 100%);
+}
+
+@theme {
+  /* Expose tokens to Tailwind utilities: bg-p-*, text-p-*, border-p-*, etc. */
+  --color-p-base:         var(--p-base);
+  --color-p-surface:      var(--p-surface);
+  --color-p-surface-alt:  var(--p-surface-alt);
+  --color-p-navy:         var(--p-navy);
+  --color-p-navy-20:      var(--p-navy-20);
+  --color-p-navy-30:      var(--p-navy-30);
+  --color-p-accent:       var(--p-accent);
+  --color-p-accent-light: var(--p-accent-light);
+  --color-p-accent-deep:  var(--p-accent-deep);
+  --color-p-hero-bg:      var(--p-hero-bg);
+  --color-p-hero-glow:    var(--p-hero-glow);
+  --color-p-text-muted:   var(--p-text-muted);
+  --color-p-text-subtle:  var(--p-text-subtle);
+  --color-p-footer:       var(--p-footer-bg);
+
+  /* Legacy semantic tokens (kept for backwards compat) */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-ring: hsl(var(--ring));
+}
+
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --body-m-font-family: "Rajdhani", Helvetica;
+  --body-m-font-size: 16px;
+  --body-m-font-style: normal;
+  --body-m-font-weight: 400;
+  --body-m-letter-spacing: -0.001599999964237213px;
+  --body-m-line-height: 26px;
+  --body-XS-font-family: "Rajdhani", Helvetica;
+  --body-XS-font-size: 13px;
+  --body-XS-font-style: normal;
+  --body-XS-font-weight: 400;
+  --body-XS-letter-spacing: -0.0012999999709427358px;
+  --body-XS-line-height: 26px;
+}
+
+:root {
+  --animation-delay: 0s;
+  --animate-spin: spin 1s linear infinite;
+  --duration: 20s;
+  --shimmer-width: 200px;
+  --gap: 20px;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration, 20s) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration, 20s) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: transparent;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: transparent;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Rajdhani", system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  header,
+  nav,
+  section,
+  article,
+  div,
+  a,
+  button,
+  input,
+  textarea,
+  img,
+  svg,
+  span,
+  li,
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    transition:
+      background 220ms ease,
+      background-color 220ms ease,
+      border-color 220ms ease,
+      color 220ms ease,
+      box-shadow 220ms ease,
+      filter 220ms ease;
+  }
+}
+
+html.theme-is-changing body {
+  animation: theme-fade 520ms ease;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 520ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation-name: theme-old-fade;
+}
+
+::view-transition-new(root) {
+  animation-name: theme-new-fade;
+}
+
+@keyframes theme-fade {
+  0% {
+    opacity: 0.94;
+    filter: saturate(0.98) brightness(1.02) blur(0.5px);
+  }
+
+  45% {
+    opacity: 1;
+    filter: saturate(1.03) brightness(1.08) blur(0);
+  }
+
+  100% {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@keyframes theme-old-fade {
+  from {
+    opacity: 1;
+    filter: none;
+  }
+
+  to {
+    opacity: 0;
+    filter: saturate(0.94) brightness(1.04) blur(2px);
+  }
+}
+
+@keyframes theme-new-fade {
+  from {
+    opacity: 0;
+    filter: saturate(1.04) brightness(1.14) blur(2px);
+  }
+
+  55% {
+    opacity: 1;
+    filter: saturate(1.02) brightness(1.06) blur(0);
+  }
+
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}

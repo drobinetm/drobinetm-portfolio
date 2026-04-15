@@ -1,0 +1,72 @@
+---
+import '@fontsource/rajdhani/400.css';
+import '@fontsource/rajdhani/500.css';
+import '@fontsource/rajdhani/600.css';
+import '@fontsource/rajdhani/700.css';
+import '../styles/global.css';
+import 'aos/dist/aos.css';
+import ThemeToggle from '../components/ThemeToggle.astro';
+
+const { title = 'Portfolio', navigation } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+
+    <!-- Anti-flash: apply saved theme before first paint -->
+    <script is:inline>
+      (function () {
+        var saved = localStorage.getItem('portfolio-theme') || 'system';
+        var resolved = saved === 'system'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : saved;
+        document.documentElement.classList.add(resolved);
+      })();
+    </script>
+  </head>
+
+  <body class="bg-[var(--p-base)] text-[var(--p-text)] transition-colors duration-300">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 bg-[#5a95c1] text-[#202738] px-3 py-2 rounded" href="#home">
+      Skip to content
+    </a>
+
+    <div class="sticky top-0 z-50 px-4 pt-3 pb-2" style="background: var(--p-header-gradient);">
+      <div class="max-w-[900px] mx-auto flex items-center gap-3">
+        <header class="min-w-0 flex-1">
+          <nav class="w-full px-4 py-2 flex items-center justify-between gap-4 rounded-full border backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.25),inset_0_1px_0_rgba(255,255,255,0.08)]" style="border-color: var(--p-nav-border); background: var(--p-nav-bg);">
+            <div class="font-[Rajdhani] font-bold tracking-tight text-sm" style="color: var(--p-text);">
+              {title}
+            </div>
+            <ul class="hidden md:flex items-center gap-2 ml-auto">
+              {navigation?.map((item: { href: string; label: string }) => (
+                <li class="flex items-center">
+                  <a
+                    href={item.href}
+                    class="inline-flex items-center justify-center min-h-8 px-3 py-1.5 rounded-full border text-[13px] leading-none font-bold font-[Rajdhani] focus:outline-none focus:ring-2 focus:ring-[#5a95c1] transition-colors duration-200"
+                    style="background: var(--p-nav-pill-bg); border-color: var(--p-nav-pill-border); color: var(--p-text);"
+                    onmouseover="this.style.background='var(--p-navy-28)'; this.style.borderColor='var(--p-accent)';"
+                    onmouseout="this.style.background='var(--p-nav-pill-bg)'; this.style.borderColor='var(--p-nav-pill-border)';"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </header>
+        <div class="shrink-0">
+          <ThemeToggle />
+        </div>
+      </div>
+    </div>
+
+    <main class="w-full min-w-[320px]">
+      <slot />
+    </main>
+
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>

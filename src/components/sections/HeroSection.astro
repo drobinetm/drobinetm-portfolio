@@ -1,0 +1,574 @@
+---
+const { hero } = Astro.props;
+
+const stats = [
+  { value: '8+', label: 'Years Experience' },
+  { value: '2020', label: 'Remote Since' }
+];
+---
+<style>
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--p-header-gradient, linear-gradient(135deg, #0a1628 0%, #0d1b2a 50%, #0a1628 100%));
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 5rem 2rem 4rem;
+  }
+
+  /* Ambient glow blobs */
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse 60% 40% at 15% 40%, rgba(90,149,193,0.10) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 85% 60%, rgba(0,136,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-container {
+    position: relative;
+    max-width: 1155px;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 1;
+  }
+
+  /* ── Grid layout ── */
+  .hero-content {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  /* ── Left: photo + stats ── */
+  .photo-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .photo-card {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: visible;
+    border: 1px solid rgba(90,149,193,0.3);
+    box-shadow: 0 0 0 1px rgba(255,255,255,0.04), 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .photo-card-inner {
+    border-radius: 1.25rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .photo-card-inner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(10,22,40,0.75) 100%);
+    pointer-events: none;
+  }
+
+  .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: unset;
+    display: block;
+  }
+
+  /* Senior badge */
+  .senior-badge {
+    position: absolute;
+    top: -5rem;
+    left: -5rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.25);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.3);
+  }
+
+  .senior-badge img {
+    width: 8.5rem;
+    height: 8.5rem;
+    object-fit: contain;
+  }
+
+  /* Role card floating over photo */
+  .role-card {
+    position: absolute;
+    bottom: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.25rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(90,149,193,0.4);
+    background: rgb(96 133 189 / 6%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.07);
+    white-space: nowrap;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--p-text);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .role-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--p-accent);
+    flex-shrink: 0;
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    background: rgba(7,58,105,0.35);
+    border: 1px solid rgba(90,149,193,0.2);
+    border-radius: 0.875rem;
+    padding: 1.125rem 1rem;
+    text-align: center;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .stat-card:hover {
+    border-color: rgba(90,149,193,0.5);
+    transform: translateY(-2px);
+  }
+
+  .stat-value {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--p-accent);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+
+  .stat-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--p-text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  /* ── Right: info ── */
+  .info-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .role-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--p-accent);
+    animation: pulse-dot 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
+  }
+
+  /* Name — typewriter */
+  .hero-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--p-text);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .typewriter {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    min-height: 1.2em;
+  }
+
+  .typewriter .cursor {
+    display: inline-block;
+    color: var(--p-accent);
+    animation: blink 0.75s step-end infinite;
+    font-weight: 300;
+    margin-left: 1px;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  /* Tagline card */
+  .tagline-card {
+    background: rgba(7,58,105,0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(90,149,193,0.2);
+    border-radius: 0.875rem;
+    padding: 1.1rem 1.4rem;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 8px 24px rgba(0,0,0,0.3);
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .tagline-card:hover {
+    border-color: rgba(90,149,193,0.5);
+    transform: translateY(-2px);
+  }
+
+  .hero-tagline {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    color: var(--p-text-muted);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* Meta info (location, email) */
+  .meta-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.875rem;
+    color: var(--p-text-subtle);
+  }
+
+  .meta-item svg {
+    width: 1rem;
+    height: 1rem;
+    color: var(--p-accent);
+    flex-shrink: 0;
+  }
+
+  /* CTAs */
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background: var(--p-accent);
+    color: #0a1628;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid var(--p-accent);
+    transition: all 0.25s ease;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: #72aad4;
+    border-color: #72aad4;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(90,149,193,0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    background: transparent;
+    color: var(--p-text-muted);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid var(--p-border);
+    transition: all 0.25s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--p-navy-10);
+    border-color: var(--p-accent-light);
+    transform: translateY(-2px);
+  }
+
+  /* Social links */
+  .social-row {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 9999px;
+    background: rgba(7,58,105,0.35);
+    border: 1px solid rgba(90,149,193,0.25);
+    color: var(--p-text-subtle);
+    transition: all 0.25s ease;
+    text-decoration: none;
+  }
+
+  .social-link:hover {
+    background: rgba(90,149,193,0.15);
+    border-color: var(--p-accent);
+    color: var(--p-accent);
+    transform: translateY(-2px);
+  }
+
+  .social-link svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .hero-content {
+      grid-template-columns: 260px 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 4rem 1.25rem 3rem;
+      align-items: flex-start;
+    }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .photo-col {
+      max-width: 280px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<section id="home" class="hero-section">
+  <div class="hero-container">
+    <div class="hero-content">
+
+      <!-- Left: Photo + Stats -->
+      <div class="photo-col">
+        <div class="photo-card">
+          <!-- Senior badge -->
+          <div class="senior-badge">
+            <img src="/senior.png" alt="Senior" />
+          </div>
+          <div class="photo-card-inner">
+            <img
+              src="/20231001_170543.jpg"
+              alt={hero.name}
+              class="profile-photo"
+            />
+          </div>
+          <!-- Role card floating over photo -->
+          <div class="role-card">
+            <span class="role-dot"></span>
+            {hero.role}
+          </div>
+        </div>
+
+        <div class="stats-row" style="margin-top: 2rem;">
+          {stats.map((stat) => (
+            <div class="stat-card">
+              <div class="stat-value">{stat.value}</div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="info-col">
+
+        <!-- Name -->
+        <h1 class="hero-name">
+          <span class="typewriter" id="hero-typewriter"></span>
+        </h1>
+
+        <!-- Tagline -->
+        <div class="tagline-card">
+          <p class="hero-tagline">{hero.intro}</p>
+        </div>
+
+        <!-- Meta -->
+        <div class="meta-list">
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>Havana, Cuba · Remote</span>
+          </div>
+          <div class="meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>drobinetm@outlook.com</span>
+          </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="cta-row">
+          <a href="#contact" class="btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            {hero.ctaLabel ?? 'Hire Me'}
+          </a>
+          <a href="#projects" class="btn-secondary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+            View Projects
+          </a>
+        </div>
+
+        <!-- Social -->
+        <div class="social-row">
+          <a href={hero.social[0].href} aria-label="LinkedIn" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href={hero.social[1].href} aria-label="GitHub" class="social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    const el = document.getElementById('hero-typewriter');
+    if (!el) return;
+
+    // "Diovi Robinet " = 14 chars, "Morales" = 7 chars
+    const prefix = 'Diovi Robinet ';
+    const accent = 'Morales';
+    const full   = prefix + accent;
+
+    const TYPE_SPEED  = 80;   // ms per char while typing
+    const ERASE_SPEED = 40;   // ms per char while erasing
+    const HOLD_MS     = 5000; // ms to hold full name visible
+    const PAUSE_MS    = 800;  // ms pause after erase before restarting
+
+    const CURSOR = '<span class="cursor">|</span>';
+
+    function render(text) {
+      if (text.length <= prefix.length) {
+        el.innerHTML = text + CURSOR;
+      } else {
+        const accentPart = text.slice(prefix.length);
+        el.innerHTML =
+          prefix + '<span style="color:#00d9ff">' + accentPart + '</span>' + CURSOR;
+      }
+    }
+
+    function runCycle() {
+      let i = 0;
+
+      // — typing phase —
+      function type() {
+        if (i <= full.length) {
+          render(full.slice(0, i));
+          i++;
+          setTimeout(type, TYPE_SPEED);
+        } else {
+          // hold
+          setTimeout(erase, HOLD_MS);
+        }
+      }
+
+      // — erasing phase —
+      function erase() {
+        if (i > 0) {
+          i--;
+          render(full.slice(0, i));
+          setTimeout(erase, ERASE_SPEED);
+        } else {
+          // pause then restart
+          setTimeout(runCycle, PAUSE_MS);
+        }
+      }
+
+      type();
+    }
+
+    runCycle();
+  })();
+</script>

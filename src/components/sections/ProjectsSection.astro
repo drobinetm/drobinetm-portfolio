@@ -1,0 +1,277 @@
+---
+import IconInfo from '../IconInfo.astro';
+const { projects } = Astro.props;
+---
+<section id="projects" data-aos="fade-in" data-aos-delay="300" class="relative w-full flex flex-col bg-[#073a694c] py-[34px]">
+  <div class="flex justify-center">
+    <div class="flex items-center gap-2 rounded-[50px] border px-[37px] h-11" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
+      <IconInfo class="w-4 h-4" style="color: var(--p-text);" />
+      <span class="font-[Rajdhani] font-bold text-base leading-[26px]" style="color: var(--p-text);">
+        {projects.badge}
+      </span>
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-12 px-4">
+    <article class="prose prose-lg max-w-[801px] font-[Rajdhani] font-normal text-base text-justify leading-[26px]" style="color: var(--p-text-muted);">
+      {projects.intro}
+    </article>
+  </div>
+
+  <div class="flex justify-center mt-9">
+    <div class="flex flex-wrap justify-center gap-[6px]" data-project-filters>
+      {projects.filters.map((option: { value: string; label: string }) => (
+        <button
+          type="button"
+          class="filter-pill flex items-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto cursor-pointer"
+          data-value={option.value}
+        >
+          <span class="filter-pill__inner flex items-center justify-center px-2.5 py-2 h-[26px] rounded-[40px] bg-[#073a69]">
+            <span class="font-[Rajdhani] font-bold text-[10px] leading-[26px] whitespace-nowrap text-[#b5b6b8]">
+              {option.label}
+            </span>
+          </span>
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-9 px-4">
+    <div class="relative w-full max-w-[795px] h-[577px]" data-project-grid>
+      {projects.images.map((image: { className: string; title: string; alt: string; src: string; href?: string; tags?: string[]; imageClassName?: string; filteredClassName?: string }) => (
+          <div
+            class={`project-card absolute ${image.className}`}
+            data-default-class={image.className}
+            data-image-class={image.imageClassName ?? 'rounded-[10px] object-cover'}
+            data-filtered-class={image.filteredClassName ?? image.imageClassName ?? 'rounded-[10px] object-cover'}
+            data-tags={(image.tags ?? []).join(',')}
+          >
+            {image.href ? (
+              <a
+                class="project-card-link absolute inset-0 block"
+                href={image.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={image.alt}
+              >
+                <img
+                  class={image.imageClassName ?? 'rounded-[10px] object-cover'}
+                  alt={image.alt}
+                  src={image.src}
+                  loading="lazy"
+                />
+                <span class={`project-card__overlay ${image.imageClassName?.includes('rounded-[') ? image.imageClassName.split(' ').find((className) => className.startsWith('rounded-')) : 'rounded-[10px]'}`}></span>
+                <span class={`project-card__title ${image.imageClassName?.includes('rounded-[') ? image.imageClassName.split(' ').find((className) => className.startsWith('rounded-')) : 'rounded-[10px]'}`}>{image.title}</span>
+              </a>
+            ) : (
+              <>
+                <img
+                  class={image.imageClassName ?? 'rounded-[10px] object-cover'}
+                  alt={image.alt}
+                  src={image.src}
+                  loading="lazy"
+                />
+                <span class={`project-card__overlay ${image.imageClassName?.includes('rounded-[') ? image.imageClassName.split(' ').find((className) => className.startsWith('rounded-')) : 'rounded-[10px]'}`}></span>
+                <span class={`project-card__title ${image.imageClassName?.includes('rounded-[') ? image.imageClassName.split(' ').find((className) => className.startsWith('rounded-')) : 'rounded-[10px]'}`}>{image.title}</span>
+              </>
+            )}
+          </div>
+      ))}
+    </div>
+  </div>
+
+  <style>
+    .project-card {
+      transition:
+        transform 260ms ease,
+        opacity 260ms ease,
+        filter 260ms ease;
+    }
+
+    .project-card.hidden {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+      pointer-events: none;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .project-card__overlay,
+    .project-card__title {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .project-card__overlay {
+      background: var(--p-project-overlay-bg);
+    }
+
+    .project-card__title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      color: #ffffff;
+      font-family: "Rajdhani", system-ui, sans-serif;
+      font-size: clamp(0.85rem, 1.25vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.35);
+      z-index: 1;
+    }
+
+    .project-card-link {
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .project-card-link:hover {
+      z-index: 20;
+    }
+
+    .project-card-link img {
+      cursor: pointer;
+    }
+  </style>
+
+  <script is:inline>
+    const root = document.currentScript.closest('section');
+    const filtersEl = root?.querySelector('[data-project-filters]');
+    const gridEl = root?.querySelector('[data-project-grid]');
+
+    const buttons = Array.from(filtersEl.querySelectorAll('button[data-value]'));
+    const cards = Array.from(gridEl.querySelectorAll('.project-card[data-tags]'));
+
+    const BASE_CARD_CLASSES = 'project-card absolute block';
+    let selected = 'all';
+
+    function getRowLayout(count) {
+      if (count <= 1) {
+        return {
+          containerHeight: '320px',
+          slots: ['top-0 left-1/2 -translate-x-1/2 w-[360px] h-[260px]']
+        };
+      }
+
+      if (count === 2) {
+        return {
+          containerHeight: '320px',
+          slots: [
+            'top-0 left-0 w-[382px] h-[260px]',
+            'top-0 right-0 w-[382px] h-[260px]'
+          ]
+        };
+      }
+
+      if (count === 3) {
+        return {
+          containerHeight: '280px',
+          slots: [
+            'top-0 left-0 w-[248px] h-[210px]',
+            'top-0 left-[273px] w-[248px] h-[210px]',
+            'top-0 right-0 w-[248px] h-[210px]'
+          ]
+        };
+      }
+
+      return {
+        containerHeight: '280px',
+        slots: [
+          'top-0 left-0 w-[186px] h-[210px]',
+          'top-0 left-[203px] w-[186px] h-[210px]',
+          'top-0 left-[406px] w-[186px] h-[210px]',
+          'top-0 right-0 w-[186px] h-[210px]'
+        ]
+      };
+    }
+
+    function getFiveRowLayout() {
+      return {
+        containerHeight: '520px',
+        slots: [
+          'top-[18px] left-[8px] w-[220px] h-[160px] rotate-[-6deg]',
+          'top-0 left-[262px] w-[246px] h-[170px] rotate-[3deg]',
+          'top-[28px] right-[12px] w-[220px] h-[160px] rotate-[7deg]',
+          'top-[206px] left-[86px] w-[256px] h-[280px] rotate-[-4deg]',
+          'top-[232px] right-[72px] w-[286px] h-[200px] rotate-[5deg]'
+        ]
+      };
+    }
+
+    function getVisibleImages() {
+      if (selected === 'all') return cards;
+
+      return cards.filter((card) => {
+        const tags = (card.dataset.tags || '').split(',').map((s) => s.trim()).filter(Boolean);
+        return tags.includes(selected);
+      });
+    }
+
+    function paintButtons() {
+      for (const btn of buttons) {
+        const value = btn.dataset.value;
+        const on = value === selected;
+        const inner = btn.querySelector('.filter-pill__inner');
+        const label = btn.querySelector('.filter-pill__inner span');
+        inner?.classList.toggle('bg-[#5a95c1]', on);
+        inner?.classList.toggle('bg-[#073a69]', !on);
+        label?.classList.toggle('text-[#181725]', on);
+        label?.classList.toggle('text-[#b5b6b8]', !on);
+        btn.setAttribute('aria-pressed', String(on));
+      }
+    }
+
+    function paintImages() {
+      if (selected === 'all') {
+        gridEl.style.height = '577px';
+        cards.forEach((card) => {
+          card.className = `${BASE_CARD_CLASSES} ${card.dataset.defaultClass}`;
+          card.classList.remove('hidden');
+
+          const cardImage = card.querySelector('img');
+          if (cardImage) cardImage.className = card.dataset.imageClass || 'rounded-[10px] object-cover';
+        });
+        return;
+      }
+
+      const visibleImages = getVisibleImages();
+      const layout = visibleImages.length === 5 ? getFiveRowLayout() : getRowLayout(visibleImages.length);
+
+      gridEl.style.height = layout.containerHeight;
+
+      cards.forEach((card) => card.classList.add('hidden'));
+
+      visibleImages.forEach((card, index) => {
+        card.className = `${BASE_CARD_CLASSES} ${layout.slots[index]}`;
+        card.classList.remove('hidden');
+
+        const cardImage = card.querySelector('img');
+        if (cardImage) cardImage.className = card.dataset.filteredClass || card.dataset.imageClass || 'rounded-[10px] object-cover';
+      });
+    }
+
+    paintButtons();
+    paintImages();
+
+    filtersEl.addEventListener('click', (e) => {
+      const btn = e.target.closest('button[data-value]');
+      if (!btn) return;
+
+      const value = btn.dataset.value;
+
+      selected = value || 'all';
+
+      paintButtons();
+      paintImages();
+    });
+  </script>
+</section>

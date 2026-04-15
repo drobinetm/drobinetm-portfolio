@@ -1,0 +1,63 @@
+---
+import IconInfo from '../IconInfo.astro';
+const { contact } = Astro.props;
+---
+<section id="contact" class="w-full bg-[var(--p-navy-28)] px-4 py-8">
+  <div class="relative w-full max-w-[930px] mx-auto rounded-[5px] overflow-hidden border border-[#5a95c180] p-6 sm:p-[29px] pt-[41px]">
+  <div class="max-w-[1155px] mx-auto flex flex-col lg:flex-row gap-8 lg:gap-[23px]">
+    <div class="flex-1 max-w-[627px]">
+      <div class="flex items-center gap-2 rounded-[50px] border px-[27px] py-3.5 h-11 w-fit mb-10 sm:mb-[65px]" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
+        <IconInfo class="w-4 h-4" style="color: var(--p-text);" />
+        <span class="font-[Rajdhani] font-bold text-base leading-[26px]" style="color: var(--p-text);">
+          {contact.badge}
+        </span>
+      </div>
+
+      <form class="flex flex-col gap-[10px]" method="post" action="#">
+        <div class="flex flex-col sm:flex-row gap-[10px]">
+          <input
+            name="name"
+            placeholder={contact.form.namePlaceholder}
+            class="h-14 w-full bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+          />
+          <input
+            name="email"
+            type="email"
+            placeholder={contact.form.emailPlaceholder}
+            class="h-14 w-full bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+          />
+        </div>
+
+        <input
+          name="subject"
+          placeholder={contact.form.subjectPlaceholder}
+          class="h-14 bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+        />
+
+        <textarea
+          name="message"
+          placeholder={contact.form.messagePlaceholder}
+          class="h-[300px] bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] py-[19px] resize-none focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+        ></textarea>
+
+        <div class="flex justify-center mt-[6px]">
+          <button
+            type="submit"
+            class="flex items-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto hover:bg-[#1817253e] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+          >
+            <span class="flex items-center justify-center gap-2 bg-[#5a95c1] rounded-[40px] px-[18px] h-[26px]">
+              <img class="w-4 h-4 object-cover" alt="" src="/rectangle.png" loading="lazy" />
+              <span class="font-[Rajdhani] font-bold text-[#181725] text-sm leading-[26px]">
+                {contact.form.submitLabel}
+              </span>
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="flex-shrink-0 hidden lg:block">
+      <img class="w-[354px] h-[387px] mt-[130px] object-contain" alt="Contact illustration" src={contact.illustration} loading="lazy" />
+    </div>
+  </div>
+  </div>
+</section>

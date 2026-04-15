@@ -1,0 +1,43 @@
+---
+import IconInfo from '../IconInfo.astro';
+const { services } = Astro.props;
+---
+<style>
+    .service-icon {
+        filter: var(--p-service-icon-filter);
+    }
+</style>
+
+<section id="services" data-aos="zoom-in-down" data-aos-delay="300" class="relative w-full rounded-[5px] overflow-hidden py-8 px-4" style="background: var(--p-services-bg);">
+    <div class="relative w-full h-[520px] mx-auto">
+        <div class="absolute top-0 left-[31.49%] w-[38.06%] h-[75.47%] rounded-[220px/212.08px] blur-[112px] pointer-events-none" style="background: var(--p-services-glow);" />
+        <div class="relative flex flex-col items-center gap-8 max-w-[1155px] mx-auto">
+            <div class="h-11 gap-[7px] rounded-[50px] border px-[22px] flex items-center" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
+                <IconInfo class="w-4 h-4" style="color: var(--p-text);" />
+                <span class="font-[Rajdhani] font-bold text-base text-center leading-[26px]" style="color: var(--p-text);">
+                    {services.badge}
+               </span>
+            </div>
+
+            <article class="prose prose-lg max-w-[801px] font-[Rajdhani] font-normal text-base text-justify leading-[26px]" style="color: var(--p-text-muted);">
+                {services.intro}
+            </article>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-[1108px]">
+                {services.items.map((service: { icon: string; iconAlt?: string; title: string; description: string }) => (
+                        <div class="rounded-[5px] border overflow-hidden" style="background: var(--p-services-card-bg); border-color: var(--p-services-card-border);">
+                            <div class="flex flex-col items-center p-6 gap-4">
+                                <img class="service-icon w-8 h-[34.5px]" alt={service.iconAlt ?? service.title} src={service.icon} loading="lazy" />
+                                <h3 class="font-[Rajdhani] font-semibold text-[34px] leading-[30px] whitespace-nowrap" style="color: var(--p-text);">
+                                    {service.title}
+                                </h3>
+                                <p class="font-[Rajdhani] font-medium text-base text-center leading-[28px]" style="color: var(--p-text-muted);">
+                                    {service.description}
+                                </p>
+                            </div>
+                        </div>
+                ))}
+            </div>
+        </div>
+    </div>
+</section>
