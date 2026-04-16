@@ -1,6 +1,6 @@
 ---
 import IconInfo from '../IconInfo.astro';
-
+import { withBase } from '../../utils/withBase';
 import 'aos/dist/aos.css';
 const { about } = Astro.props;
 ---
@@ -43,7 +43,7 @@ const { about } = Astro.props;
           <img
             class="w-full max-w-[353px] h-auto border border-[#77a6c066] rounded-[10px] object-cover"
             alt="About image"
-            src={about.image}
+            src={withBase(about.image)}
             loading="lazy"
           />
           <div class="absolute inset-0 rounded-[10px] max-w-[353px] bg-[rgba(7,58,105,0.45)] pointer-events-none"></div>

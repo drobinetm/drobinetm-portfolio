@@ -1,5 +1,6 @@
 ---
 import IconInfo from '../IconInfo.astro';
+import { withBase } from '../../utils/withBase';
 const { resume } = Astro.props;
 ---
 <style>
@@ -197,7 +198,7 @@ const { resume } = Astro.props;
 <section id="resume" data-aos="fade-in" data-aos-delay="300" class="relative w-full rounded-[5px] overflow-hidden bg-[linear-gradient(315deg,rgba(50,111,225,0.25)_0%,rgba(45,46,35,0.1)_100%)] py-8 px-4">
   <div class="relative w-full max-w-[1155px] mx-auto">
     <div class="relative w-full h-[520px] sm:h-[777px] rounded-[10px] overflow-hidden border border-[#5a95c1] mb-11">
-      <img class="absolute top-0 left-0 w-full h-full object-cover" alt="Resume background" src={resume.backgroundImage} loading="lazy" />
+      <img class="absolute top-0 left-0 w-full h-full object-cover" alt="Resume background" src={withBase(resume.backgroundImage)} loading="lazy" />
       <div class="absolute top-0 left-0 w-full h-full" style="background: var(--p-resume-overlay-top);" />
       <div class="absolute bottom-0 left-0 w-full h-[356px]" style="background: var(--p-resume-overlay-bottom);" />
     </div>

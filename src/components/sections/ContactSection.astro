@@ -1,5 +1,6 @@
 ---
 import IconInfo from '../IconInfo.astro';
+import { withBase } from '../../utils/withBase';
 const { contact } = Astro.props;
 ---
 <section id="contact" class="w-full bg-[var(--p-navy-28)] px-4 py-8">
@@ -46,7 +47,7 @@ const { contact } = Astro.props;
             class="flex items-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto hover:bg-[#1817253e] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
           >
             <span class="flex items-center justify-center gap-2 bg-[#5a95c1] rounded-[40px] px-[18px] h-[26px]">
-              <img class="w-4 h-4 object-cover" alt="" src="/rectangle.png" loading="lazy" />
+              <img class="w-4 h-4 object-cover" alt="" src={withBase('rectangle.png')} loading="lazy" />
               <span class="font-[Rajdhani] font-bold text-[#181725] text-sm leading-[26px]">
                 {contact.form.submitLabel}
               </span>
@@ -56,7 +57,7 @@ const { contact } = Astro.props;
       </form>
     </div>
     <div class="flex-shrink-0 hidden lg:block">
-      <img class="w-[354px] h-[387px] mt-[130px] object-contain" alt="Contact illustration" src={contact.illustration} loading="lazy" />
+      <img class="w-[354px] h-[387px] mt-[130px] object-contain" alt="Contact illustration" src={withBase(contact.illustration)} loading="lazy" />
     </div>
   </div>
   </div>

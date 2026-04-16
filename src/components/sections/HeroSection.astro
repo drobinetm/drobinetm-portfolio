@@ -1,4 +1,5 @@
 ---
+import { withBase } from '../../utils/withBase';
 const { hero } = Astro.props;
 
 const stats = [
@@ -419,11 +420,11 @@ const stats = [
         <div class="photo-card">
           <!-- Senior badge -->
           <div class="senior-badge">
-            <img src="/senior.png" alt="Senior" />
+            <img src={withBase('senior.png')} alt="Senior" />
           </div>
           <div class="photo-card-inner">
             <img
-              src="/20231001_170543.jpg"
+              src={withBase('20231001_170543.jpg')}
               alt={hero.name}
               class="profile-photo"
             />

@@ -1,5 +1,6 @@
 ---
 import IconInfo from '../IconInfo.astro';
+import { withBase } from '../../utils/withBase';
 const { projects } = Astro.props;
 ---
 <section id="projects" data-aos="fade-in" data-aos-delay="300" class="relative w-full flex flex-col bg-[#073a694c] py-[34px]">
@@ -54,10 +55,10 @@ const { projects } = Astro.props;
                 rel="noopener noreferrer"
                 aria-label={image.alt}
               >
-                <img
+                 <img
                   class={image.imageClassName ?? 'rounded-[10px] object-cover'}
                   alt={image.alt}
-                  src={image.src}
+                  src={withBase(image.src)}
                   loading="lazy"
                 />
                 <span class={`project-card__overlay ${image.imageClassName?.includes('rounded-[') ? image.imageClassName.split(' ').find((className) => className.startsWith('rounded-')) : 'rounded-[10px]'}`}></span>
@@ -68,7 +69,7 @@ const { projects } = Astro.props;
                 <img
                   class={image.imageClassName ?? 'rounded-[10px] object-cover'}
                   alt={image.alt}
-                  src={image.src}
+                  src={withBase(image.src)}
                   loading="lazy"
                 />
                 <span class={`project-card__overlay ${image.imageClassName?.includes('rounded-[') ? image.imageClassName.split(' ').find((className) => className.startsWith('rounded-')) : 'rounded-[10px]'}`}></span>
