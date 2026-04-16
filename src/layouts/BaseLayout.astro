@@ -6,6 +6,7 @@ import '@fontsource/rajdhani/700.css';
 import '../styles/global.css';
 import 'aos/dist/aos.css';
 import ThemeToggle from '../components/ThemeToggle.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
 
 const { title = 'Portfolio', navigation } = Astro.props;
 ---
@@ -66,6 +67,8 @@ const { title = 'Portfolio', navigation } = Astro.props;
     <main class="w-full min-w-[320px]">
       <slot />
     </main>
+
+    <ScrollToTop />
 
     <script src="../assets/js/main.js"></script>
   </body>
