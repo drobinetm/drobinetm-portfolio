@@ -3,6 +3,7 @@ import IconInfo from '../IconInfo.astro';
 import FrontendIcon from '../icons/FrontendIcon.astro';
 import BackendIcon from '../icons/BackendIcon.astro';
 import DevOpsIcon from '../icons/DevOpsIcon.astro';
+import { withBase } from '../../utils/withBase';
 
 const { skills } = Astro.props;
 ---
@@ -157,7 +158,8 @@ const { skills } = Astro.props;
     </div>
     <div class="flex justify-center mt-8">
       <a
-        href="#resume"
+        href={withBase(skills.ctaHref ?? '/cv/CURRICULUM VITAE EN CURRENT.pdf')}
+        download
         class="inline-flex h-auto px-4 py-1.5 bg-[#5a95c1] rounded-lg border border-[#ffffff26] shadow-[inset_0px_0px_6px_3px_#ffffff40] hover:bg-[#5a95c1]/90 font-[Rajdhani] font-bold text-[#202738] text-sm leading-[26px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
       >
         {skills.ctaLabel}

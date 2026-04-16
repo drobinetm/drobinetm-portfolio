@@ -19,6 +19,7 @@ hero:
   name: "Diovi Robinet Morales"
   role: "Senior Software Enginner"
   ctaLabel: "Download CV"
+  ctaHref: "/cv/CURRICULUM VITAE EN CURRENT.pdf"
   intro: >
     Senior Software Engineer specializing in software architectures,
     scalable microservices, and high-performance Laravel systems.
@@ -113,6 +114,7 @@ projects:
 skills:
   badge: "SKILLS"
   ctaLabel: "Download CV"
+  ctaHref: "/cv/CURRICULUM VITAE EN CURRENT.pdf"
   sections:
     - id: frontend
       title: "Frontend"
