@@ -1,10 +1,9 @@
 {
   "name": "drobinetm-portfolio",
-  "version": "0.0.0",
-  "homepage": "http://drobinetm.github.io/portfolio",
+  "version": "1.0.0",
+  "homepage": "https://drobinetm.github.io/drobinetm-portfolio",
   "type": "module",
   "private": true,
-  "version": "1.0.0",
   "description": "A modern, high-performance portfolio website template for designers built with Astro. Features retro blue theme, dark mode, and beautiful animations.",
   "keywords": [
     "astro",
@@ -35,7 +34,10 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "biome check src"
+    "check": "biome check src",
+    "check:types": "astro check",
+    "lint": "biome lint src",
+    "format": "biome format --write src"
   },
   "dependencies": {
     "@fontsource/rajdhani": "^5.2.7",
