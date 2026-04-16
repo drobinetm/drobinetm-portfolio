@@ -2,6 +2,7 @@
 import IconInfo from '../IconInfo.astro';
 import { withBase } from '../../utils/withBase';
 const { contact } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
 ---
 <section id="contact" class="w-full bg-[var(--p-navy-28)] px-4 py-8">
   <div class="relative w-full max-w-[930px] mx-auto rounded-[5px] overflow-hidden border border-[#5a95c180] p-6 sm:p-[29px] pt-[41px]">
@@ -14,16 +15,18 @@ const { contact } = Astro.props;
         </span>
       </div>
 
-      <form class="flex flex-col gap-[10px]" method="post" action="#">
+      <form id="contact-form" class="flex flex-col gap-[10px]" novalidate>
         <div class="flex flex-col sm:flex-row gap-[10px]">
           <input
             name="name"
+            required
             placeholder={contact.form.namePlaceholder}
             class="h-14 w-full bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
           />
           <input
             name="email"
             type="email"
+            required
             placeholder={contact.form.emailPlaceholder}
             class="h-14 w-full bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
           />
@@ -31,24 +34,35 @@ const { contact } = Astro.props;
 
         <input
           name="subject"
+          required
           placeholder={contact.form.subjectPlaceholder}
           class="h-14 bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
         />
 
         <textarea
           name="message"
+          required
           placeholder={contact.form.messagePlaceholder}
           class="h-[300px] bg-[var(--p-navy-20)] rounded-[10px] border border-[var(--p-accent)] font-[Rajdhani] font-bold text-[var(--p-text-subtle)] text-xs placeholder:text-[var(--p-text-subtle)] px-[15px] py-[19px] resize-none focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
         ></textarea>
 
+        <!-- Status messages -->
+        <p id="contact-success" class="hidden text-center font-[Rajdhani] font-bold text-sm text-green-400">
+          Message sent! I'll get back to you soon.
+        </p>
+        <p id="contact-error" class="hidden text-center font-[Rajdhani] font-bold text-sm text-red-400">
+          Something went wrong. Please try again.
+        </p>
+
         <div class="flex justify-center mt-[6px]">
           <button
+            id="contact-submit"
             type="submit"
-            class="flex items-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto hover:bg-[#1817253e] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+            class="flex items-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto hover:bg-[#1817253e] focus:outline-none focus:ring-2 focus:ring-[#5a95c1] disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <span class="flex items-center justify-center gap-2 bg-[#5a95c1] rounded-[40px] px-[18px] h-[26px]">
               <img class="w-4 h-4 object-cover" alt="" src={withBase('rectangle.png')} loading="lazy" />
-              <span class="font-[Rajdhani] font-bold text-[#181725] text-sm leading-[26px]">
+              <span id="contact-submit-label" class="font-[Rajdhani] font-bold text-[#181725] text-sm leading-[26px]">
                 {contact.form.submitLabel}
               </span>
             </span>
@@ -62,3 +76,51 @@ const { contact } = Astro.props;
   </div>
   </div>
 </section>
+
+<script define:vars={{ endpoint }}>
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('contact-submit');
+  const submitLabel = document.getElementById('contact-submit-label');
+  const successMsg = document.getElementById('contact-success');
+  const errorMsg = document.getElementById('contact-error');
+  const originalLabel = submitLabel.textContent;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!endpoint || endpoint.includes('YOUR_FORM_ID')) {
+      errorMsg.textContent = 'Contact form is not configured yet.';
+      errorMsg.classList.remove('hidden');
+      return;
+    }
+
+    // Reset state
+    successMsg.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending…';
+
+    try {
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form),
+      });
+
+      if (res.ok) {
+        form.reset();
+        successMsg.classList.remove('hidden');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        errorMsg.textContent = data?.errors?.[0]?.message ?? 'Something went wrong. Please try again.';
+        errorMsg.classList.remove('hidden');
+      }
+    } catch {
+      errorMsg.textContent = 'Network error. Please check your connection.';
+      errorMsg.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.textContent = originalLabel;
+    }
+  });
+</script>

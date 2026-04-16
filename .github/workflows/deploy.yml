@@ -52,6 +52,8 @@ jobs:
       - name: Type-check & build
         run: pnpm build
         # `pnpm build` runs `astro check && astro build` (see package.json)
+        env:
+          PUBLIC_FORMSPREE_ENDPOINT: ${{ secrets.PUBLIC_FORMSPREE_ENDPOINT }}
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
