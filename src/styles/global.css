@@ -97,8 +97,8 @@ html.dark {
    ========================================================================== */
 html.light {
   /* Base backgrounds */
-  --p-base:          #f0f4f8;
-  --p-base-nav:      #f0f4f8cc;
+  --p-base:          #edf3fa;
+  --p-base-nav:      #edf3facc;
 
   /* Surface layers */
   --p-surface:       #ffffff;
@@ -109,14 +109,14 @@ html.light {
   --p-navy:          #3b82c4;
   --p-navy-10:       #3b82c41a;
   --p-navy-20:       #3b82c433;
-  --p-navy-28:       #3b82c447;
+  --p-navy-28:       rgba(255,255,255,0.9);
   --p-navy-30:       #3b82c44c;
   --p-navy-38:       #3b82c461;
 
   /* Accent (retro blue) */
-  --p-accent:        #1a5fa8;
+  --p-accent:        #2f6db2;
   --p-accent-light:  #3b82c4;
-  --p-accent-deep:   #0c4a80;
+  --p-accent-deep:   #245792;
   --p-accent-link:   #1a56d6;
 
   /* Hero specific */
@@ -124,49 +124,54 @@ html.light {
   --p-hero-glow:     #0066cc;
 
   /* Text */
-  --p-text:          #0d1117;
-  --p-text-muted:    #0d1117b2;
-  --p-text-subtle:   #4a5568;
+  --p-text:          #1f2a37;
+  --p-text-muted:    #334155;
+  --p-text-subtle:   #475569;
   --p-text-on-accent:#ffffff;
 
   /* Borders */
-  --p-border:        rgba(74,85,104,0.22);
-  --p-border-pill:   rgba(74,85,104,0.28);
-  --p-border-nav:    rgba(74,85,104,0.18);
+  --p-border:        rgba(120,140,170,0.18);
+  --p-border-pill:   rgba(120,140,170,0.14);
+  --p-border-nav:    rgba(120,140,170,0.18);
 
   /* Footer */
   --p-footer-bg:     #ffffff66;
 
   /* Header gradient */
-  --p-header-gradient: linear-gradient(135deg,#c7ddf5 0%,#ddeaf7 50%,#c7ddf5 100%);
-  --p-nav-border:    rgba(74,85,104,0.24);
-  --p-nav-bg:        rgba(59,130,196,0.12);
-  --p-nav-pill-bg:   rgba(59,130,196,0.1);
-  --p-nav-pill-border: rgba(74,85,104,0.24);
-  --p-section-badge-bg: rgba(255,255,255,0.68);
-  --p-section-badge-border: rgba(74,85,104,0.28);
-  --p-services-bg: #d7e8f8;
-  --p-services-glow: rgba(116,170,221,0.35);
-  --p-services-card-bg: rgba(199,221,245,0.72);
-  --p-services-card-border: rgba(74,85,104,0.24);
+  --p-header-gradient: linear-gradient(135deg, #dfe8f4 0%, #edf3fa 50%, #dfe8f4 100%);
+  --p-nav-border:    rgba(120,140,170,0.18);
+  --p-nav-bg:        rgba(255,255,255,0.72);
+  --p-nav-pill-bg:   rgba(255,255,255,0.65);
+  --p-nav-pill-border: rgba(120,140,170,0.14);
+  /* Nav interaction tokens — light only */
+  --p-nav-hover-bg:  rgba(255,255,255,0.9);
+  --p-nav-active-bg: linear-gradient(180deg, #2f6db2 0%, #245792 100%);
+  --p-nav-active-border: rgba(31,78,130,0.35);
+  --p-nav-active-text: #ffffff;
+  --p-section-badge-bg: rgba(255,255,255,0.72);
+  --p-section-badge-border: rgba(120,140,170,0.18);
+  --p-services-bg: #dce8f4;
+  --p-services-glow: rgba(116,170,221,0.25);
+  --p-services-card-bg: rgba(255,255,255,0.72);
+  --p-services-card-border: rgba(120,140,170,0.16);
   --p-service-icon-filter: brightness(0) saturate(100%) invert(36%) sepia(18%) saturate(575%) hue-rotate(176deg) brightness(92%) contrast(88%);
-  --p-project-overlay-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(40, 64, 96, 0.52) 100%);
-  --p-skill-card-bg: rgba(199,221,245,0.72);
-  --p-skill-card-border: rgba(74,85,104,0.24);
-  --p-resume-panel-bg: rgba(207,227,247,0.82);
-  --p-resume-panel-border: rgba(74,85,104,0.28);
-  --p-resume-panel-arrow: rgba(74,85,104,0.28);
-  --p-resume-panel-arrow-inner: rgba(207,227,247,0.82);
+  --p-project-overlay-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(40, 64, 96, 0.50) 100%);
+  --p-skill-card-bg: rgba(255,255,255,0.72);
+  --p-skill-card-border: rgba(120,140,170,0.16);
+  --p-resume-panel-bg: rgba(255,255,255,0.80);
+  --p-resume-panel-border: rgba(120,140,170,0.18);
+  --p-resume-panel-arrow: rgba(120,140,170,0.22);
+  --p-resume-panel-arrow-inner: rgba(255,255,255,0.80);
   --p-resume-important-bg: rgba(123,171,220,0.92);
-  --p-resume-important-arrow-border: rgba(74,85,104,0.4);
-  --p-resume-button-bg: rgba(219,233,247,0.92);
-  --p-resume-button-border: rgba(74,85,104,0.32);
-  --p-resume-button-hover-bg: rgba(199,221,245,0.98);
-  --p-resume-button-hover-border: rgba(74,85,104,0.42);
-  --p-resume-card-bg: rgba(199,221,245,0.74);
-  --p-resume-card-border: rgba(74,85,104,0.24);
+  --p-resume-important-arrow-border: rgba(120,140,170,0.3);
+  --p-resume-button-bg: rgba(255,255,255,0.80);
+  --p-resume-button-border: rgba(120,140,170,0.20);
+  --p-resume-button-hover-bg: rgba(255,255,255,0.95);
+  --p-resume-button-hover-border: rgba(120,140,170,0.30);
+  --p-resume-card-bg: rgba(255,255,255,0.72);
+  --p-resume-card-border: rgba(120,140,170,0.16);
   --p-resume-hero-card-bg: rgba(108, 154, 205, 0.82);
-  --p-resume-hero-card-border: rgba(74,85,104,0.24);
+  --p-resume-hero-card-border: rgba(120,140,170,0.20);
   --p-resume-on-image-text: #fdfefe;
   --p-resume-on-image-text-muted: rgba(24,37,56,0.96);
   --p-resume-overlay-top: linear-gradient(0deg,rgba(240,244,248,0.78) 0%,rgba(221,234,247,0.3) 100%);

@@ -44,10 +44,11 @@
     align-items: center;
     gap: 2px;
     padding: 3px;
-    border-radius: 9999px;
-    border: 1px solid var(--p-nav-border, rgba(90,149,193,0.25));
-    background: var(--p-nav-pill-bg, rgba(7,58,105,0.15));
-    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    border: 1px solid var(--p-nav-border, rgba(120,140,170,0.18));
+    background: var(--p-nav-pill-bg, rgba(255,255,255,0.65));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(100,116,139,0.08);
   }
 
   .theme-btn {
@@ -55,34 +56,49 @@
     align-items: center;
     gap: 4px;
     padding: 4px 9px;
-    border-radius: 9999px;
+    border-radius: 12px;
     border: 1px solid transparent;
     background: transparent;
-    color: var(--p-text-subtle, #b5b6b8);
+    color: var(--p-text-subtle, #475569);
     font-family: "Rajdhani", sans-serif;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 0.02em;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    transition: all 0.2s ease;
     white-space: nowrap;
   }
 
   .theme-btn:hover {
-    background: var(--p-navy-28, #073a6947);
-    border-color: var(--p-accent, #5a95c1);
-    color: var(--p-text, #ffffff);
+    background: var(--p-nav-hover-bg, rgba(255,255,255,0.9));
+    border-color: transparent;
+    color: var(--p-text, #1f2a37);
+    box-shadow: 0 2px 6px rgba(100,116,139,0.10);
+    transform: translateY(-1px);
   }
 
   .theme-btn:focus-visible {
-    outline: 2px solid var(--p-accent, #5a95c1);
+    outline: 2px solid var(--p-accent, #2f6db2);
     outline-offset: 2px;
   }
 
-  .theme-btn.active {
+  /* Dark theme active: solid accent fill */
+  html.dark .theme-btn.active,
+  html:not(.light) .theme-btn.active {
     background: var(--p-accent, #5a95c1);
     border-color: var(--p-accent, #5a95c1);
     color: var(--p-text-on-accent, #181725);
+    box-shadow: 0 4px 10px rgba(90,149,193,0.30);
+    transform: none;
+  }
+
+  /* Light theme active: gradient blue button with white text */
+  html.light .theme-btn.active {
+    background: linear-gradient(180deg, #2f6db2 0%, #245792 100%);
+    border-color: rgba(31,78,130,0.35);
+    color: #ffffff;
+    box-shadow: 0 8px 18px rgba(37,87,146,0.28);
+    transform: none;
   }
 
   /* Hide labels on very small screens, keep icons */
