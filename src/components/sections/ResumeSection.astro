@@ -1,6 +1,6 @@
 ---
-import IconInfo from '../IconInfo.astro';
-import { withBase } from '../../utils/withBase';
+import IconInfo from "../IconInfo.astro";
+import { withBase } from "../../utils/withBase";
 const { resume } = Astro.props;
 ---
 <style>
@@ -68,9 +68,15 @@ const { resume } = Astro.props;
     border-radius: 10px;
     padding: 20px;
     position: relative;
-    -webkit-box-shadow: 0 1px 6px #000000ab;
-    box-shadow: 0 1px 6px #000000de;
+    -webkit-box-shadow: var(--p-card-shadow);
+    box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);
     background-color: var(--p-resume-panel-bg);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+  }
+
+  .timeline > li > .timeline-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--p-card-shadow-hover), var(--p-card-inset-highlight);
   }
 
   .timeline > li > .timeline-panel:before {
@@ -108,10 +114,10 @@ const { resume } = Astro.props;
     top: 35px;
     left: 96%;
     margin-left: -28px;
-    background-color: #0a485d;
+    background-color: var(--p-accent-deep);
     z-index: 100;
     border-radius: 50%;
-    border: 1px solid #2b7596;
+    border: 1px solid var(--p-accent-light);
   }
 
   .timeline-title {
@@ -122,7 +128,7 @@ const { resume } = Astro.props;
 
   .timeline-place {
     margin-top: 0;
-    color: #fbbf24;
+    color: var(--p-accent-light);
     font-size: 14px;
   }
 
@@ -159,21 +165,47 @@ const { resume } = Astro.props;
     border-color: var(--p-resume-button-hover-border);
   }
 
+  .resume-hero-summary {
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 760px;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .resume-hero-summary {
+      top: 445px;
+    }
+  }
+
   @media (max-width: 767px) {
+    .timeline {
+      padding: 20px 0 24px 0;
+    }
+
+    .timeline > li {
+      margin-bottom: 1.5rem;
+      padding-top: 0;
+    }
+
     .timeline:before {
-      left: 40px;
+      left: 20px;
     }
 
     .timeline > li > .timeline-panel {
-      width: calc(100% - 90px);
-      width: -moz-calc(100% - 90px);
-      width: -webkit-calc(100% - 90px);
+      width: calc(100% - 54px);
+      margin-right: 12px;
+      margin-top: 0;
+      padding: 16px;
     }
 
     .timeline > li > .timeline-badge {
-      left: 15px;
+      left: 13px;
       margin-left: 0;
-      top: 16px;
+      top: 1rem;
     }
 
     .timeline > li > .timeline-panel {
@@ -183,6 +215,7 @@ const { resume } = Astro.props;
     .timeline > li > .timeline-panel:before {
       border-left-width: 0;
       border-right-width: 15px;
+      top: 8px;
       left: -15px;
       right: auto;
     }
@@ -190,20 +223,90 @@ const { resume } = Astro.props;
     .timeline > li > .timeline-panel:after {
       border-left-width: 0;
       border-right-width: 14px;
+      top: 9px;
       left: -14px;
       right: auto;
     }
+
+    .timeline-place {
+      line-height: 1.45;
+    }
+
+    .timeline-body a {
+      width: 100%;
+      max-width: 220px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .resume-hero-summary {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      max-width: 100%;
+      margin: -6rem auto 2rem;
+      padding-inline: 0;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .resume-hero-summary {
+      margin-top: -1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .resume-hero-media {
+      height: 240px;
+      margin-bottom: 0;
+      border-radius: 14px;
+    }
+
+    .resume-hero-media-bottom {
+      height: 120px;
+    }
+
+    .resume-hero-summary {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+      margin: 1rem 0 1.5rem;
+      padding-inline: 0;
+    }
+
+    .resume-card {
+      min-height: auto;
+    }
+
+    .resume-card-title {
+      white-space: normal;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .resume-intro {
+      padding-inline: 1rem;
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .resume-columns {
+      padding-inline: 0;
+      gap: 1rem;
+    }
   }
 </style>
-<section id="resume" data-aos="fade-in" data-aos-delay="300" class="relative w-full rounded-[5px] overflow-hidden bg-[linear-gradient(315deg,rgba(50,111,225,0.25)_0%,rgba(45,46,35,0.1)_100%)] py-8 px-4">
+<section id="resume" data-aos="fade-in" data-aos-delay="300" class="relative w-full rounded-[5px] overflow-hidden py-8 px-4" style="background: linear-gradient(315deg, rgba(98,155,182,0.24) 0%, rgba(214,235,243,0.42) 100%);">
   <div class="relative w-full max-w-[1155px] mx-auto">
-    <div class="relative w-full h-[520px] sm:h-[777px] rounded-[10px] overflow-hidden border border-[#5a95c1] mb-11">
+    <div class="resume-hero-media relative w-full h-[520px] sm:h-[777px] rounded-[10px] overflow-hidden border mb-11" style="border-color: var(--p-accent-light); box-shadow: var(--p-card-shadow);">
       <img class="absolute top-0 left-0 w-full h-full object-cover" alt="Resume background" src={withBase(resume.backgroundImage)} loading="lazy" />
       <div class="absolute top-0 left-0 w-full h-full" style="background: var(--p-resume-overlay-top);" />
-      <div class="absolute bottom-0 left-0 w-full h-[356px]" style="background: var(--p-resume-overlay-bottom);" />
+      <div class="resume-hero-media-bottom absolute bottom-0 left-0 w-full h-[356px]" style="background: var(--p-resume-overlay-bottom);" />
     </div>
-    <div class="absolute top-[300px] sm:top-[445px] left-1/2 -translate-x-1/2 w-full max-w-[760px] px-4">
-      <div class="rounded-[5px] overflow-hidden border" style="background: var(--p-resume-hero-card-bg); border-color: var(--p-resume-hero-card-border);">
+    <div class="resume-hero-summary">
+      <div class="rounded-[5px] overflow-hidden border" style="background: var(--p-resume-hero-card-bg); border-color: var(--p-resume-hero-card-border); box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);">
         <div class="flex flex-col gap-5 pt-7 pb-7">
           <div class="flex justify-center">
             <div class="h-11 gap-[7px] rounded-[50px] border px-6 flex items-center" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
@@ -214,19 +317,19 @@ const { resume } = Astro.props;
             </div>
           </div>
 
-          <article class="prose prose-lg max-w-[801px] px-7 sm:px-12 font-[Rajdhani] font-normal text-base text-justify leading-[26px]" style="color: var(--p-resume-on-image-text-muted);">
+          <article class="resume-intro prose prose-lg max-w-[801px] px-7 sm:px-12 font-[Rajdhani] font-normal text-base text-justify leading-[26px]" style="color: var(--p-resume-on-image-text-muted);">
             {resume.intro}
           </article>
         </div>
       </div>
     </div>
-    <div class="flex flex-col lg:flex-row gap-[29px] justify-center px-4">
+    <div class="resume-columns flex flex-col lg:flex-row gap-[29px] justify-center px-4">
       {resume.sections.map((section: { id: string; title: string, items: [] }) => (
-        <div id={section.id} class="w-full lg:w-[530px] min-h-[420px] rounded-[5px] overflow-hidden border" style="background: var(--p-resume-card-bg); border-color: var(--p-resume-card-border);">
+        <div id={section.id} class="resume-card w-full lg:w-[530px] min-h-[420px] rounded-[5px] overflow-hidden border" style="background: var(--p-resume-card-bg); border-color: var(--p-resume-card-border); box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);">
           <div class="pt-6 flex justify-center">
             <div class="h-11 gap-2 rounded-[50px] border px-[25px] flex items-center" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
               <IconInfo class="w-4 h-4" />
-              <span class="font-[Rajdhani] font-bold text-base leading-[26px] whitespace-nowrap" style="color: var(--p-text);">
+              <span class="resume-card-title font-[Rajdhani] font-bold text-base leading-[26px] whitespace-nowrap" style="color: var(--p-text);">
                 {section.title}
               </span>
             </div>
@@ -240,7 +343,7 @@ const { resume } = Astro.props;
                   <div class="timeline-heading">
                     <h4 class="timeline-title">{item.title}</h4>
                     <p class="timeline-place">
-                      <span class="text-[#326fe1]">{item.date}</span> • {item.place}
+                      <span style="color: var(--p-accent-link);">{item.date}</span> • {item.place}
                     </p>
                   </div>
                   <div class="timeline-body">

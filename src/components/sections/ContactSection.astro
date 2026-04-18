@@ -58,9 +58,9 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
           <button
             id="contact-submit"
             type="submit"
-            class="flex items-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto hover:bg-[#1817253e] focus:outline-none focus:ring-2 focus:ring-[#5a95c1] disabled:opacity-50 disabled:cursor-not-allowed"
+            class="w-full sm:w-auto flex items-center justify-center gap-[7px] px-3.5 py-2 bg-[#1817252e] rounded-[50px] border border-[#ffffff26] h-auto hover:bg-[#1817253e] focus:outline-none focus:ring-2 focus:ring-[#5a95c1] disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span class="flex items-center justify-center gap-2 bg-[#5a95c1] rounded-[40px] px-[18px] h-[26px]">
+            <span class="flex items-center justify-center gap-2 bg-[#5a95c1] rounded-[40px] px-[18px] h-[26px] max-w-full">
               <img class="w-4 h-4 object-cover" alt="" src={withBase('rectangle.png')} loading="lazy" />
               <span id="contact-submit-label" class="font-[Rajdhani] font-bold text-[#181725] text-sm leading-[26px]">
                 {contact.form.submitLabel}

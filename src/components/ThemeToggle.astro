@@ -48,7 +48,7 @@
     border: 1px solid var(--p-nav-border, rgba(120,140,170,0.18));
     background: var(--p-nav-pill-bg, rgba(255,255,255,0.65));
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 8px rgba(100,116,139,0.08);
+    box-shadow: var(--p-nav-pill-shadow, 0 2px 8px rgba(100,116,139,0.08));
   }
 
   .theme-btn {
@@ -71,9 +71,9 @@
 
   .theme-btn:hover {
     background: var(--p-nav-hover-bg, rgba(255,255,255,0.9));
-    border-color: transparent;
+    border-color: var(--p-nav-pill-border, transparent);
     color: var(--p-text, #1f2a37);
-    box-shadow: 0 2px 6px rgba(100,116,139,0.10);
+    box-shadow: var(--p-nav-pill-hover-shadow, 0 2px 6px rgba(100,116,139,0.10));
     transform: translateY(-1px);
   }
 
@@ -88,17 +88,22 @@
     background: var(--p-accent, #5a95c1);
     border-color: var(--p-accent, #5a95c1);
     color: var(--p-text-on-accent, #181725);
-    box-shadow: 0 4px 10px rgba(90,149,193,0.30);
+    box-shadow: var(--p-nav-active-shadow, 0 4px 10px rgba(90,149,193,0.30));
     transform: none;
   }
 
-  /* Light theme active: gradient blue button with white text */
+  /* Light theme active: strong blue button with white text */
   html.light .theme-btn.active {
-    background: linear-gradient(180deg, #2f6db2 0%, #245792 100%);
-    border-color: rgba(31,78,130,0.35);
-    color: #ffffff;
-    box-shadow: 0 8px 18px rgba(37,87,146,0.28);
+    background: var(--p-nav-active-bg, linear-gradient(180deg, #1f5f8f 0%, #184c73 100%));
+    border-color: var(--p-nav-active-border, rgba(24,76,115,0.44));
+    color: var(--p-nav-active-text, #ffffff);
+    box-shadow: var(--p-nav-active-shadow, 0 8px 18px rgba(37,87,146,0.28));
     transform: none;
+  }
+
+  html.light .theme-btn.active:hover {
+    background: linear-gradient(180deg, #2d6f98 0%, #1f5f8f 100%);
+    color: var(--p-nav-active-text, #ffffff);
   }
 
   /* Hide labels on very small screens, keep icons */

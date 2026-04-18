@@ -62,6 +62,14 @@ html.dark {
   --p-nav-bg:        rgba(7,58,105,0.15);
   --p-nav-pill-bg:   #1817252e;
   --p-nav-pill-border: #ffffff26;
+  --p-nav-hover-bg: rgba(32,39,56,0.9);
+  --p-nav-active-bg: linear-gradient(180deg, #5a95c1 0%, #326776 100%);
+  --p-nav-active-border: rgba(90,149,193,0.44);
+  --p-nav-active-text: #ffffff;
+  --p-nav-shell-shadow: 0 10px 30px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.08);
+  --p-nav-pill-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  --p-nav-pill-hover-shadow: 0 8px 18px rgba(0,0,0,0.24);
+  --p-nav-active-shadow: 0 10px 20px rgba(7,58,105,0.35);
   --p-section-badge-bg: rgba(255,255,255,0.1);
   --p-section-badge-border: #b5b6b833;
   --p-services-bg: #073a6933;
@@ -90,6 +98,16 @@ html.dark {
   --p-resume-on-image-text-muted: #ffffffb2;
   --p-resume-overlay-top: linear-gradient(0deg,rgba(2,1,3,1) 0%,rgba(7,58,105,0.46) 100%);
   --p-resume-overlay-bottom: linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(5,2,8,1) 100%);
+  --p-card-shadow: 0 12px 28px rgba(0,0,0,0.28);
+  --p-card-shadow-hover: 0 18px 38px rgba(0,0,0,0.34);
+  --p-card-inset-highlight: inset 0 1px 0 rgba(255,255,255,0.06);
+  --p-filter-pill-bg: #1817252e;
+  --p-filter-pill-border: #ffffff26;
+  --p-filter-inner-bg: #073a69;
+  --p-filter-inner-text: #b5b6b8;
+  --p-filter-active-inner-bg: linear-gradient(180deg, #5a95c1 0%, #326776 100%);
+  --p-filter-active-inner-text: #181725;
+  --p-filter-hover-inner-bg: #447f98;
 }
 
 /* ==========================================================================
@@ -97,85 +115,99 @@ html.dark {
    ========================================================================== */
 html.light {
   /* Base backgrounds */
-  --p-base:          #edf3fa;
-  --p-base-nav:      #edf3facc;
+  --p-base:          #d6ebf3;
+  --p-base-nav:      #d6ebf3cc;
 
   /* Surface layers */
-  --p-surface:       #ffffff;
-  --p-surface-alt:   #e8edf3;
-  --p-surface-pill:  #dce5f029;
+  --p-surface:       #f8fbfd;
+  --p-surface-alt:   #dadedf;
+  --p-surface-pill:  rgba(185,219,225,0.28);
 
   /* Navy — section backgrounds */
-  --p-navy:          #3b82c4;
-  --p-navy-10:       #3b82c41a;
-  --p-navy-20:       #3b82c433;
-  --p-navy-28:       rgba(255,255,255,0.9);
-  --p-navy-30:       #3b82c44c;
-  --p-navy-38:       #3b82c461;
+  --p-navy:          #447f98;
+  --p-navy-10:       rgba(68,127,152,0.10);
+  --p-navy-20:       rgba(68,127,152,0.20);
+  --p-navy-28:       rgba(248,251,253,0.92);
+  --p-navy-30:       rgba(68,127,152,0.30);
+  --p-navy-38:       rgba(68,127,152,0.38);
 
   /* Accent (retro blue) */
-  --p-accent:        #2f6db2;
-  --p-accent-light:  #3b82c4;
-  --p-accent-deep:   #245792;
-  --p-accent-link:   #1a56d6;
+  --p-accent:        #1f5f8f;
+  --p-accent-light:  #447f98;
+  --p-accent-deep:   #184c73;
+  --p-accent-link:   #2d6f98;
 
   /* Hero specific */
-  --p-hero-bg:       #ddeaf7;
-  --p-hero-glow:     #0066cc;
+  --p-hero-bg:       #d6ebf3;
+  --p-hero-glow:     #629bb6;
 
   /* Text */
-  --p-text:          #1f2a37;
-  --p-text-muted:    #334155;
-  --p-text-subtle:   #475569;
+  --p-text:          #143246;
+  --p-text-muted:    #35566a;
+  --p-text-subtle:   #5b7f91;
   --p-text-on-accent:#ffffff;
 
   /* Borders */
-  --p-border:        rgba(120,140,170,0.18);
-  --p-border-pill:   rgba(120,140,170,0.14);
-  --p-border-nav:    rgba(120,140,170,0.18);
+  --p-border:        rgba(68,127,152,0.18);
+  --p-border-pill:   rgba(98,155,182,0.22);
+  --p-border-nav:    rgba(68,127,152,0.20);
 
   /* Footer */
-  --p-footer-bg:     #ffffff66;
+  --p-footer-bg:     rgba(248,251,253,0.74);
 
   /* Header gradient */
-  --p-header-gradient: linear-gradient(135deg, #dfe8f4 0%, #edf3fa 50%, #dfe8f4 100%);
-  --p-nav-border:    rgba(120,140,170,0.18);
-  --p-nav-bg:        rgba(255,255,255,0.72);
-  --p-nav-pill-bg:   rgba(255,255,255,0.65);
-  --p-nav-pill-border: rgba(120,140,170,0.14);
+  --p-header-gradient: linear-gradient(135deg, #d6ebf3 0%, #e6f2f7 42%, #b9dbe1 100%);
+  --p-nav-border:    rgba(68,127,152,0.22);
+  --p-nav-bg:        rgba(248,251,253,0.78);
+  --p-nav-pill-bg:   rgba(214,235,243,0.72);
+  --p-nav-pill-border: rgba(98,155,182,0.22);
   /* Nav interaction tokens — light only */
-  --p-nav-hover-bg:  rgba(255,255,255,0.9);
-  --p-nav-active-bg: linear-gradient(180deg, #2f6db2 0%, #245792 100%);
-  --p-nav-active-border: rgba(31,78,130,0.35);
+  --p-nav-hover-bg:  #b9dbe1;
+  --p-nav-active-bg: linear-gradient(180deg, #1f5f8f 0%, #184c73 100%);
+  --p-nav-active-border: rgba(24,76,115,0.44);
   --p-nav-active-text: #ffffff;
-  --p-section-badge-bg: rgba(255,255,255,0.72);
-  --p-section-badge-border: rgba(120,140,170,0.18);
-  --p-services-bg: #dce8f4;
-  --p-services-glow: rgba(116,170,221,0.25);
-  --p-services-card-bg: rgba(255,255,255,0.72);
-  --p-services-card-border: rgba(120,140,170,0.16);
-  --p-service-icon-filter: brightness(0) saturate(100%) invert(36%) sepia(18%) saturate(575%) hue-rotate(176deg) brightness(92%) contrast(88%);
-  --p-project-overlay-bg: linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(40, 64, 96, 0.50) 100%);
-  --p-skill-card-bg: rgba(255,255,255,0.72);
-  --p-skill-card-border: rgba(120,140,170,0.16);
-  --p-resume-panel-bg: rgba(255,255,255,0.80);
-  --p-resume-panel-border: rgba(120,140,170,0.18);
-  --p-resume-panel-arrow: rgba(120,140,170,0.22);
-  --p-resume-panel-arrow-inner: rgba(255,255,255,0.80);
-  --p-resume-important-bg: rgba(123,171,220,0.92);
-  --p-resume-important-arrow-border: rgba(120,140,170,0.3);
-  --p-resume-button-bg: rgba(255,255,255,0.80);
-  --p-resume-button-border: rgba(120,140,170,0.20);
-  --p-resume-button-hover-bg: rgba(255,255,255,0.95);
-  --p-resume-button-hover-border: rgba(120,140,170,0.30);
-  --p-resume-card-bg: rgba(255,255,255,0.72);
-  --p-resume-card-border: rgba(120,140,170,0.16);
-  --p-resume-hero-card-bg: rgba(108, 154, 205, 0.82);
-  --p-resume-hero-card-border: rgba(120,140,170,0.20);
+  --p-nav-shell-shadow: 0 14px 34px rgba(68,127,152,0.14), inset 0 1px 0 rgba(255,255,255,0.72);
+  --p-nav-pill-shadow: 0 4px 10px rgba(68,127,152,0.08);
+  --p-nav-pill-hover-shadow: 0 10px 22px rgba(68,127,152,0.16);
+  --p-nav-active-shadow: 0 14px 24px rgba(31,95,143,0.26);
+  --p-section-badge-bg: rgba(248,251,253,0.82);
+  --p-section-badge-border: rgba(98,155,182,0.22);
+  --p-services-bg: linear-gradient(180deg, rgba(185,219,225,0.42) 0%, rgba(214,235,243,0.74) 100%);
+  --p-services-glow: rgba(98,155,182,0.22);
+  --p-services-card-bg: rgba(248,251,253,0.88);
+  --p-services-card-border: rgba(98,155,182,0.20);
+  --p-service-icon-filter: none;
+  --p-project-overlay-bg: linear-gradient(180deg, rgba(248, 251, 253, 0.20) 0%, rgba(20, 50, 70, 0.52) 100%);
+  --p-skill-card-bg: rgba(248,251,253,0.9);
+  --p-skill-card-border: rgba(98,155,182,0.20);
+  --p-resume-panel-bg: rgba(248,251,253,0.84);
+  --p-resume-panel-border: rgba(98,155,182,0.22);
+  --p-resume-panel-arrow: rgba(98,155,182,0.26);
+  --p-resume-panel-arrow-inner: rgba(248,251,253,0.84);
+  --p-resume-important-bg: rgba(68,127,152,0.92);
+  --p-resume-important-arrow-border: rgba(68,127,152,0.38);
+  --p-resume-button-bg: rgba(214,235,243,0.84);
+  --p-resume-button-border: rgba(98,155,182,0.24);
+  --p-resume-button-hover-bg: rgba(185,219,225,0.92);
+  --p-resume-button-hover-border: rgba(68,127,152,0.32);
+  --p-resume-card-bg: rgba(248,251,253,0.88);
+  --p-resume-card-border: rgba(98,155,182,0.20);
+  --p-resume-hero-card-bg: rgba(98,155,182,0.84);
+  --p-resume-hero-card-border: rgba(68,127,152,0.26);
   --p-resume-on-image-text: #fdfefe;
-  --p-resume-on-image-text-muted: rgba(24,37,56,0.96);
-  --p-resume-overlay-top: linear-gradient(0deg,rgba(240,244,248,0.78) 0%,rgba(221,234,247,0.3) 100%);
-  --p-resume-overlay-bottom: linear-gradient(180deg,rgba(240,244,248,0) 0%,rgba(240,244,248,0.82) 100%);
+  --p-resume-on-image-text-muted: rgba(20,50,70,0.96);
+  --p-resume-overlay-top: linear-gradient(0deg,rgba(248,251,253,0.78) 0%,rgba(214,235,243,0.26) 100%);
+  --p-resume-overlay-bottom: linear-gradient(180deg,rgba(248,251,253,0) 0%,rgba(248,251,253,0.84) 100%);
+  --p-card-shadow: 0 14px 28px rgba(68,127,152,0.10);
+  --p-card-shadow-hover: 0 20px 38px rgba(68,127,152,0.18);
+  --p-card-inset-highlight: inset 0 1px 0 rgba(255,255,255,0.72);
+  --p-filter-pill-bg: rgba(248,251,253,0.68);
+  --p-filter-pill-border: rgba(98,155,182,0.18);
+  --p-filter-inner-bg: rgba(214,235,243,0.82);
+  --p-filter-inner-text: #5b7f91;
+  --p-filter-active-inner-bg: linear-gradient(180deg, #1f5f8f 0%, #184c73 100%);
+  --p-filter-active-inner-text: #ffffff;
+  --p-filter-hover-inner-bg: #629bb6;
 }
 
 @theme {

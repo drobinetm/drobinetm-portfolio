@@ -361,6 +361,68 @@ const stats = [
     text-decoration: none;
   }
 
+  html.light .photo-card {
+    border-color: rgba(68,127,152,0.26);
+    background: linear-gradient(180deg, rgba(98,155,182,0.28) 0%, rgba(68,127,152,0.12) 100%);
+    box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);
+  }
+
+  html.light .photo-card-inner::after {
+    background: linear-gradient(180deg, transparent 45%, rgba(20,50,70,0.54) 100%);
+  }
+
+  html.light .senior-badge {
+    background: rgba(214,235,243,0.82);
+    border-color: rgba(98,155,182,0.26);
+    box-shadow: var(--p-card-shadow), inset 0 1px 0 rgba(255,255,255,0.76);
+  }
+
+  html.light .role-card {
+    border-color: rgba(68,127,152,0.24);
+    background: #b9dbe1;
+    box-shadow: var(--p-card-shadow), inset 0 1px 0 rgba(255,255,255,0.7);
+  }
+
+  html.light .stat-card {
+    background: linear-gradient(180deg, rgba(98,155,182,0.26) 0%, rgba(185,219,225,0.78) 100%);
+    border-color: rgba(68,127,152,0.18);
+    box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);
+  }
+
+  html.light .stat-card:hover {
+    border-color: rgba(31,95,143,0.28);
+  }
+
+  html.light .tagline-card {
+    background: linear-gradient(180deg, rgba(98,155,182,0.2) 0%, rgba(248,251,253,0.9) 100%);
+    border-color: rgba(68,127,152,0.2);
+    box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);
+  }
+
+  html.light .btn-primary {
+    background: linear-gradient(180deg, #d6ebf3 0%, #b9dbe1 100%);
+    border-color: rgba(98,155,182,0.28);
+    color: #143246;
+    box-shadow: 0 12px 24px rgba(98,155,182,0.18), inset 0 1px 0 rgba(255,255,255,0.9);
+  }
+
+  html.light .btn-primary:hover {
+    background: linear-gradient(180deg, #e8f5fa 0%, #d6ebf3 100%);
+    border-color: rgba(68,127,152,0.34);
+    box-shadow: 0 16px 30px rgba(98,155,182,0.22), inset 0 1px 0 rgba(255,255,255,0.94);
+  }
+
+  html.light .social-link {
+    background: rgba(248,251,253,0.82);
+    border-color: rgba(98,155,182,0.24);
+    box-shadow: var(--p-nav-pill-shadow), inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+
+  html.light .social-link:hover {
+    background: rgba(185,219,225,0.78);
+    color: var(--p-accent-deep);
+  }
+
   .social-link:hover {
     background: rgba(90,149,193,0.15);
     border-color: var(--p-accent);
@@ -385,6 +447,7 @@ const stats = [
     .hero-section {
       padding: 4rem 1.25rem 3rem;
       align-items: flex-start;
+      min-height: auto;
     }
 
     .hero-content {
@@ -393,9 +456,50 @@ const stats = [
     }
 
     .photo-col {
-      max-width: 280px;
+      max-width: 320px;
       margin: 0 auto;
       width: 100%;
+    }
+
+    .senior-badge {
+      top: -2.5rem;
+      left: -0.35rem;
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 0.85rem;
+    }
+
+    .senior-badge img {
+      width: 4.7rem;
+      height: 4.7rem;
+    }
+
+    .role-card {
+      width: calc(100% - 1.5rem);
+      justify-content: center;
+      bottom: -1rem;
+      font-size: 0.68rem;
+      padding: 0.65rem 0.95rem;
+      white-space: normal;
+      text-align: center;
+      line-height: 1.25;
+    }
+
+    .stats-row {
+      margin-top: 2.5rem !important;
+    }
+
+    .hero-name {
+      font-size: clamp(1.8rem, 8vw, 2.35rem);
+    }
+
+    .typewriter {
+      white-space: normal;
+    }
+
+    .meta-item {
+      align-items: flex-start;
+      line-height: 1.5;
     }
 
     .cta-row {
@@ -407,6 +511,25 @@ const stats = [
     .btn-secondary {
       width: 100%;
       justify-content: center;
+    }
+
+    .social-row {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-section {
+      padding-inline: 1rem;
+    }
+
+    .photo-col {
+      max-width: 100%;
+    }
+
+    .hero-tagline {
+      font-size: 0.9rem;
+      line-height: 1.65;
     }
   }
 </style>

@@ -1,9 +1,9 @@
 ---
-import IconInfo from '../IconInfo.astro';
-import FrontendIcon from '../icons/FrontendIcon.astro';
-import BackendIcon from '../icons/BackendIcon.astro';
-import DevOpsIcon from '../icons/DevOpsIcon.astro';
-import { withBase } from '../../utils/withBase';
+import IconInfo from "../IconInfo.astro";
+import FrontendIcon from "../icons/FrontendIcon.astro";
+import BackendIcon from "../icons/BackendIcon.astro";
+import DevOpsIcon from "../icons/DevOpsIcon.astro";
+import { withBase } from "../../utils/withBase";
 
 const { skills } = Astro.props;
 ---
@@ -13,7 +13,13 @@ const { skills } = Astro.props;
         border: 1px solid var(--p-skill-card-border);
         border-radius: 1rem;
         padding: 1.5rem;
-        transition: all 0.3s ease;
+        box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--p-card-shadow-hover), var(--p-card-inset-highlight);
     }
 
     .skill-card-header {
@@ -22,7 +28,7 @@ const { skills } = Astro.props;
         gap: 0.75rem;
         margin-bottom: 1.5rem;
         padding-bottom: 1rem;
-        border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        border-bottom: 1px solid var(--p-border-pill);
     }
 
     .skill-icon {
@@ -102,9 +108,15 @@ const { skills } = Astro.props;
     .skill-bar-fill {
         position: absolute;
         inset: 0;
-        background: #0c4a80;
+        background: var(--p-accent-deep);
         border-radius: 0.25rem;
         transition: width 0.6s ease;
+    }
+
+    .skills-cta:hover {
+        background: linear-gradient(180deg, #2d6f98 0%, #1f5f8f 100%) !important;
+        border-color: var(--p-nav-active-border) !important;
+        box-shadow: var(--p-nav-pill-hover-shadow), inset 0 1px 0 rgba(255,255,255,0.18) !important;
     }
 
     @media (max-width: 768px) {
@@ -117,7 +129,7 @@ const { skills } = Astro.props;
         }
     }
 </style>
-<section id="skills" data-aos="fade-in" data-aos-delay="300" class="w-full flex flex-col gap-8 bg-[#073a6933] py-10 px-4">
+<section id="skills" data-aos="fade-in" data-aos-delay="300" class="w-full flex flex-col gap-8 py-10 px-4" style="background: var(--p-navy-20);">
   <div class="max-w-[1155px] mx-auto w-full">
     <div class="flex justify-center">
       <div class="flex items-center gap-2 px-6 py-2 rounded-[50px] border" style="background: var(--p-section-badge-bg); border-color: var(--p-section-badge-border);">
@@ -160,7 +172,8 @@ const { skills } = Astro.props;
       <a
         href={withBase(skills.ctaHref ?? '/cv/CURRICULUM VITAE EN CURRENT.pdf')}
         download
-        class="inline-flex h-auto px-4 py-1.5 bg-[#5a95c1] rounded-lg border border-[#ffffff26] shadow-[inset_0px_0px_6px_3px_#ffffff40] hover:bg-[#5a95c1]/90 font-[Rajdhani] font-bold text-[#202738] text-sm leading-[26px] focus:outline-none focus:ring-2 focus:ring-[#5a95c1]"
+        class="skills-cta inline-flex h-auto px-4 py-1.5 rounded-lg border font-[Rajdhani] font-bold text-sm leading-[26px] focus:outline-none focus:ring-2 focus:ring-[var(--p-accent)] transition-[background-color,border-color,box-shadow,color,transform] duration-200 hover:-translate-y-0.5"
+        style="background: var(--p-nav-active-bg); border-color: var(--p-nav-active-border); color: var(--p-text-on-accent); box-shadow: var(--p-nav-active-shadow), inset 0 1px 0 rgba(255,255,255,0.18);"
       >
         {skills.ctaLabel}
       </a>
