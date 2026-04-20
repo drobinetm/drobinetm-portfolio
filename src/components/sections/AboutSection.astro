@@ -6,8 +6,8 @@ const { about } = Astro.props;
 ---
 <style>
   .about-shell {
-    background: linear-gradient(315deg, rgba(98,155,182,0.22) 0%, rgba(214,235,243,0.36) 100%);
-    border-color: rgba(68,127,152,0.2);
+    background: var(--p-about-shell-bg);
+    border-color: var(--p-about-shell-border);
     box-shadow: var(--p-card-shadow), var(--p-card-inset-highlight);
   }
 
@@ -17,12 +17,12 @@ const { about } = Astro.props;
   }
 
   .about-image-overlay {
-    background: linear-gradient(180deg, rgba(68,127,152,0.16) 0%, rgba(20,50,70,0.32) 100%);
+    background: var(--p-about-image-overlay);
   }
 
   .about-status {
-    background: rgba(248,251,253,0.66);
-    border-color: rgba(98,155,182,0.2);
+    background: var(--p-about-status-bg);
+    border-color: var(--p-about-status-border);
     box-shadow: var(--p-nav-pill-shadow), inset 0 1px 0 rgba(255,255,255,0.78);
   }
 
@@ -52,7 +52,7 @@ const { about } = Astro.props;
   }
 </style>
 
-<section id="about" data-aos="fade-in" data-aos-delay="300" class="px-4 py-8 bg-[var(--p-navy-28)]">
+<section id="about" data-aos="fade-up" data-aos-delay="300" class="px-4 py-8" style="background: var(--p-resume-section-bg);">
   <div class="max-w-[1155px] mx-auto">
     <div class="about-shell relative w-full rounded-[5px] overflow-hidden border">
       <div class="p-7 flex flex-col lg:flex-row gap-8">

@@ -80,6 +80,12 @@ html.dark {
   --p-project-overlay-bg: linear-gradient(180deg, rgba(7, 20, 40, 0.18) 0%, rgba(2, 6, 23, 0.62) 100%);
   --p-skill-card-bg: #2435457d;
   --p-skill-card-border: #5a95c1;
+  --p-about-shell-bg: linear-gradient(145deg, rgba(8,22,40,0.92) 0%, rgba(9,40,72,0.82) 52%, rgba(12,74,128,0.48) 100%);
+  --p-about-shell-border: rgba(119,166,192,0.34);
+  --p-about-image-overlay: linear-gradient(180deg, rgba(7,58,105,0.14) 0%, rgba(2,6,23,0.48) 100%);
+  --p-about-status-bg: rgba(24,23,37,0.76);
+  --p-about-status-border: rgba(119,166,192,0.24);
+  --p-resume-section-bg: linear-gradient(180deg, rgba(4,18,36,0.96) 0%, rgba(7,58,105,0.78) 58%, rgba(12,74,128,0.46) 100%);
   --p-resume-panel-bg: #2b759652;
   --p-resume-panel-border: #2b7596;
   --p-resume-panel-arrow: #007596;
@@ -180,6 +186,12 @@ html.light {
   --p-project-overlay-bg: linear-gradient(180deg, rgba(248, 251, 253, 0.20) 0%, rgba(20, 50, 70, 0.52) 100%);
   --p-skill-card-bg: rgba(248,251,253,0.9);
   --p-skill-card-border: rgba(98,155,182,0.20);
+  --p-about-shell-bg: linear-gradient(315deg, rgba(98,155,182,0.22) 0%, rgba(214,235,243,0.36) 100%);
+  --p-about-shell-border: rgba(68,127,152,0.2);
+  --p-about-image-overlay: linear-gradient(180deg, rgba(68,127,152,0.16) 0%, rgba(20,50,70,0.32) 100%);
+  --p-about-status-bg: rgba(248,251,253,0.66);
+  --p-about-status-border: rgba(98,155,182,0.2);
+  --p-resume-section-bg: linear-gradient(315deg, rgba(98,155,182,0.24) 0%, rgba(214,235,243,0.42) 100%);
   --p-resume-panel-bg: rgba(248,251,253,0.84);
   --p-resume-panel-border: rgba(98,155,182,0.22);
   --p-resume-panel-arrow: rgba(98,155,182,0.26);
