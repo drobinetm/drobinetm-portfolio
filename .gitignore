@@ -23,6 +23,10 @@ package-lock.json
 # AI
 .windsurf/
 .windsurf/rules/
+.claude
+.cursor
+.opencode
+openspec
 specs/
 AGENTES.md
 PRD.md

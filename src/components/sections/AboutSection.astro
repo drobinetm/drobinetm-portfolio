@@ -26,17 +26,40 @@ const { about } = Astro.props;
     box-shadow: var(--p-nav-pill-shadow), inset 0 1px 0 rgba(255,255,255,0.78);
   }
 
+  .about-availability-text {
+    background: var(--p-about-availability-chip-bg);
+    border: 1px solid var(--p-about-availability-chip-border);
+    border-radius: 999px;
+    padding: 1px 10px;
+    line-height: 1.4;
+    color: #000000;
+    transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  }
+
+  .about-status:hover .about-availability-text,
+  .about-status:focus-within .about-availability-text {
+    transform: translateY(-1px);
+  }
+
   .about-hire-link {
-    background: var(--p-nav-active-bg);
-    color: var(--p-text-on-accent);
+    background: var(--p-about-hire-button-bg);
+    color: var(--p-nav-active-text);
     box-shadow: var(--p-nav-active-shadow), inset 0 1px 0 rgba(255,255,255,0.16);
     transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease;
   }
 
   .about-hire-link:hover {
-    background: linear-gradient(180deg, #2d6f98 0%, #1f5f8f 100%);
+    background: var(--p-about-hire-button-hover-bg);
     transform: translateY(-1px);
     box-shadow: var(--p-nav-pill-hover-shadow), inset 0 1px 0 rgba(255,255,255,0.16);
+  }
+
+  .about-hire-link:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--p-about-hire-button-focus-ring),
+      var(--p-nav-pill-hover-shadow),
+      inset 0 1px 0 rgba(255,255,255,0.16);
   }
 
   @media (max-width: 768px) {
@@ -73,12 +96,12 @@ const { about } = Astro.props;
               href="#contact"
               class="about-hire-link flex flex-col w-[68px] items-center justify-center p-2.5 h-[26px] rounded-[40px] focus:outline-none focus:ring-2 focus:ring-[var(--p-accent)]"
             >
-              <span class="font-[Rajdhani] font-bold text-[10px] leading-[26px] whitespace-nowrap" style="color: var(--p-text-on-accent);">
+              <span class="font-[Rajdhani] font-bold text-[10px] leading-[26px] whitespace-nowrap" style="color: var(--p-nav-active-text);">
                 {about.hireCtaLabel}
               </span>
             </a>
 
-            <span class="font-[Rajdhani] font-bold text-xs text-center whitespace-nowrap" style="color: var(--p-accent);">
+            <span class="font-[Rajdhani] font-bold text-xs text-center whitespace-nowrap" style="color: var(--p-accent-dark);">
               {about.availabilityText}
             </span>
           </div>

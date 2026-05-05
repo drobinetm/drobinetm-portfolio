@@ -37,6 +37,7 @@ html.dark {
   --p-accent-light:  #77a6c0; /* subtle borders */
   --p-accent-deep:   #0c4a80; /* skill bar fill */
   --p-accent-link:   #326fe1; /* inline links */
+  --p-accent-dark: #001c37;
 
   /* Hero specific */
   --p-hero-bg:       #0a1628;
@@ -83,8 +84,13 @@ html.dark {
   --p-about-shell-bg: linear-gradient(145deg, rgba(8,22,40,0.92) 0%, rgba(9,40,72,0.82) 52%, rgba(12,74,128,0.48) 100%);
   --p-about-shell-border: rgba(119,166,192,0.34);
   --p-about-image-overlay: linear-gradient(180deg, rgba(7,58,105,0.14) 0%, rgba(2,6,23,0.48) 100%);
-  --p-about-status-bg: rgba(24,23,37,0.76);
-  --p-about-status-border: rgba(119,166,192,0.24);
+  --p-about-status-bg: linear-gradient(180deg, rgba(127,201,232,0.32) 0%, rgba(90,168,212,0.24) 100%);
+  --p-about-status-border: rgba(170,223,245,0.42);
+  --p-about-hire-button-bg: linear-gradient(180deg, #326776 0%, #0c4a80 100%);
+  --p-about-hire-button-hover-bg: linear-gradient(180deg, #8ab4cc 0%, #1f5f8f 100%);
+  --p-about-hire-button-focus-ring: rgba(119,166,192,0.55);
+  --p-about-availability-chip-bg: transparent;
+  --p-about-availability-chip-border: transparent;
   --p-resume-section-bg: linear-gradient(180deg, rgba(4,18,36,0.96) 0%, rgba(7,58,105,0.78) 58%, rgba(12,74,128,0.46) 100%);
   --p-resume-panel-bg: #2b759652;
   --p-resume-panel-border: #2b7596;
@@ -191,6 +197,11 @@ html.light {
   --p-about-image-overlay: linear-gradient(180deg, rgba(68,127,152,0.16) 0%, rgba(20,50,70,0.32) 100%);
   --p-about-status-bg: rgba(248,251,253,0.66);
   --p-about-status-border: rgba(98,155,182,0.2);
+  --p-about-hire-button-bg: linear-gradient(180deg, #1f5f8f 0%, #184c73 100%);
+  --p-about-hire-button-hover-bg: linear-gradient(180deg, #2d6f98 0%, #1f5f8f 100%);
+  --p-about-hire-button-focus-ring: rgba(31,95,143,0.44);
+  --p-about-availability-chip-bg: transparent;
+  --p-about-availability-chip-border: transparent;
   --p-resume-section-bg: linear-gradient(315deg, rgba(98,155,182,0.24) 0%, rgba(214,235,243,0.42) 100%);
   --p-resume-panel-bg: rgba(248,251,253,0.84);
   --p-resume-panel-border: rgba(98,155,182,0.22);
