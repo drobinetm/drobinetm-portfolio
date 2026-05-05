@@ -130,21 +130,19 @@ const { projects } = Astro.props;
     }
 
     .filter-pill {
-      background: var(--p-filter-pill-bg);
-      border-color: var(--p-filter-pill-border);
-      box-shadow: var(--p-nav-pill-shadow);
-      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, background-color 220ms ease;
+      background: color-mix(in srgb, var(--p-nav-bg) 78%, transparent);
+      border-color: color-mix(in srgb, var(--p-nav-border) 88%, transparent);
+      transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease;
     }
 
     .filter-pill:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--p-nav-pill-hover-shadow);
+      background: color-mix(in srgb, var(--p-nav-bg) 92%, var(--p-accent) 8%);
+      border-color: color-mix(in srgb, var(--p-accent) 38%, var(--p-nav-border) 62%);
     }
 
     .filter-pill__inner {
-      background: var(--p-filter-inner-bg);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
-      transition: background 220ms ease, box-shadow 220ms ease;
+      background: transparent;
+      transition: background 220ms ease, color 220ms ease;
     }
 
     .filter-pill__label {
@@ -153,25 +151,29 @@ const { projects } = Astro.props;
     }
 
     .filter-pill:hover .filter-pill__inner {
-      background: var(--p-filter-hover-inner-bg);
+      background: transparent;
     }
 
     .filter-pill:hover .filter-pill__label {
-      color: var(--p-text-on-accent);
+      color: var(--p-text);
     }
 
     .filter-pill.is-active {
-      border-color: var(--p-nav-active-border);
-      box-shadow: var(--p-nav-active-shadow);
+      background: color-mix(in srgb, var(--p-accent) 18%, var(--p-nav-bg) 82%);
+      border-color: color-mix(in srgb, var(--p-accent) 58%, transparent);
     }
 
     .filter-pill.is-active .filter-pill__inner {
-      background: var(--p-filter-active-inner-bg);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+      background: color-mix(in srgb, var(--p-accent) 88%, var(--p-nav-bg) 12%);
     }
 
     .filter-pill.is-active .filter-pill__label {
       color: var(--p-filter-active-inner-text);
+    }
+
+    .filter-pill:focus-visible {
+      outline: 2px solid var(--p-accent);
+      outline-offset: 2px;
     }
 
     .project-card.hidden {
