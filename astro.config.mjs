@@ -15,6 +15,14 @@ export default defineConfig({
   site: SITE,
   base: BASE,
 
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
+
   // Static output — no server required, perfect for GitHub Pages.
   output: 'static',
 

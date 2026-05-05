@@ -1,7 +1,7 @@
 ---
 import IconInfo from '../IconInfo.astro';
 import { withBase } from '../../utils/withBase';
-const { contact } = Astro.props;
+const { contact, t } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
 ---
 <section id="contact" class="w-full bg-[var(--p-navy-28)] px-4 py-8">
@@ -48,10 +48,10 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
 
         <!-- Status messages -->
         <p id="contact-success" class="hidden text-center font-[Rajdhani] font-bold text-sm text-green-400">
-          Message sent! I'll get back to you soon.
+          { t('contact.success') }
         </p>
         <p id="contact-error" class="hidden text-center font-[Rajdhani] font-bold text-sm text-red-400">
-          Something went wrong. Please try again.
+          { t('contact.error_generic') }
         </p>
 
         <div class="flex justify-center mt-[6px]">
@@ -77,7 +77,7 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
   </div>
 </section>
 
-<script define:vars={{ endpoint }}>
+<script define:vars={{ endpoint, msgSuccess: t('contact.success'), msgErrorGeneric: t('contact.error_generic'), msgErrorNotConfigured: t('contact.error_not_configured'), msgErrorNetwork: t('contact.error_network'), msgSending: t('contact.sending') }}>
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('contact-submit');
   const submitLabel = document.getElementById('contact-submit-label');
@@ -89,7 +89,7 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
     e.preventDefault();
 
     if (!endpoint || endpoint.includes('YOUR_FORM_ID')) {
-      errorMsg.textContent = 'Contact form is not configured yet.';
+      errorMsg.textContent = msgErrorNotConfigured;
       errorMsg.classList.remove('hidden');
       return;
     }
@@ -98,7 +98,7 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
     successMsg.classList.add('hidden');
     errorMsg.classList.add('hidden');
     submitBtn.disabled = true;
-    submitLabel.textContent = 'Sending…';
+    submitLabel.textContent = msgSending;
 
     try {
       const res = await fetch(endpoint, {
@@ -112,11 +112,11 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
         successMsg.classList.remove('hidden');
       } else {
         const data = await res.json().catch(() => ({}));
-        errorMsg.textContent = data?.errors?.[0]?.message ?? 'Something went wrong. Please try again.';
+        errorMsg.textContent = data?.errors?.[0]?.message ?? msgErrorGeneric;
         errorMsg.classList.remove('hidden');
       }
     } catch {
-      errorMsg.textContent = 'Network error. Please check your connection.';
+      errorMsg.textContent = msgErrorNetwork;
       errorMsg.classList.remove('hidden');
     } finally {
       submitBtn.disabled = false;

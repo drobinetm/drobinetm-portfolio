@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "location": "La Habana, Cuba · Remoto",
+    "email": "drobinetm@outlook.com",
+    "view_projects": "Ver Proyectos",
+    "years_experience_label": "Años de Experiencia",
+    "remote_since_label": "Remoto Desde"
+  },
+  "resume": {
+    "view_certificate": "Ver Certificado →"
+  },
+  "contact": {
+    "success": "¡Mensaje enviado! Me pondré en contacto pronto.",
+    "error_generic": "Algo salió mal. Por favor intenta de nuevo.",
+    "error_not_configured": "El formulario de contacto aún no está configurado.",
+    "error_network": "Error de red. Por favor verifica tu conexión.",
+    "sending": "Enviando…"
+  },
+  "nav": {
+    "language_label_en": "EN",
+    "language_label_es": "ES"
+  }
+}

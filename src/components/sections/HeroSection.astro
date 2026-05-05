@@ -1,10 +1,10 @@
 ---
 import { withBase } from '../../utils/withBase';
-const { hero } = Astro.props;
+const { hero, t } = Astro.props;
 
 const stats = [
-  { value: '8+', label: 'Years Experience' },
-  { value: '2020', label: 'Remote Since' }
+  { value: '8+', label: t('hero.years_experience_label') },
+  { value: '2020', label: t('hero.remote_since_label') }
 ];
 ---
 <style>
@@ -295,6 +295,10 @@ const stats = [
     flex-wrap: wrap;
   }
 
+  .cta-row a {
+    flex: 0 0 auto;
+  }
+
   .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -339,6 +343,25 @@ const stats = [
     background: var(--p-navy-10);
     border-color: var(--p-accent-light);
     transform: translateY(-2px);
+  }
+
+  @media (min-width: 769px) {
+    .cta-row {
+      gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.75rem 1.4rem;
+    }
   }
 
   /* Social links */
@@ -441,6 +464,23 @@ const stats = [
       grid-template-columns: 260px 1fr;
       gap: 3rem;
     }
+
+    .photo-col {
+      max-width: 260px;
+    }
+
+    .senior-badge {
+      top: -2.5rem;
+      left: -0.5rem;
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 0.85rem;
+    }
+
+    .senior-badge img {
+      width: 4.7rem;
+      height: 4.7rem;
+    }
   }
 
   @media (max-width: 768px) {
@@ -504,17 +544,19 @@ const stats = [
 
     .cta-row {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .btn-primary,
     .btn-secondary {
-      width: 100%;
+      width: auto;
+      max-width: 100%;
       justify-content: center;
     }
 
     .social-row {
       flex-wrap: wrap;
+      justify-content: center;
     }
   }
 
@@ -589,14 +631,14 @@ const stats = [
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            <span>Havana, Cuba · Remote</span>
+            <span>{ t('hero.location') }</span>
           </div>
           <div class="meta-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            <span>drobinetm@outlook.com</span>
+            <span>{ t('hero.email') }</span>
           </div>
         </div>
 
@@ -613,7 +655,7 @@ const stats = [
               <rect x="2" y="3" width="20" height="14" rx="2"/>
               <path d="M8 21h8M12 17v4"/>
             </svg>
-            View Projects
+            { t('hero.view_projects') }
           </a>
         </div>
 

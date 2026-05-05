@@ -1,7 +1,7 @@
 ---
 import IconInfo from "../IconInfo.astro";
 import { withBase } from "../../utils/withBase";
-const { resume } = Astro.props;
+const { resume, t } = Astro.props;
 ---
 <style>
   .timeline {
@@ -356,7 +356,7 @@ const { resume } = Astro.props;
                     )}
                     {item.url && item.url !== '#' && (
                       <a href={item.url} target="_blank" rel="noopener noreferrer" class="mt-3">
-                        View Certificate →
+                        { t('resume.view_certificate') }
                       </a>
                     )}
                   </div>

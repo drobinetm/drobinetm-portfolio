@@ -6,12 +6,13 @@ import "@fontsource/rajdhani/700.css";
 import "../styles/global.css";
 import "aos/dist/aos.css";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import LanguageSwitcher from "../components/LanguageSwitcher.astro";
 import ScrollToTop from "../components/ScrollToTop.astro";
 
-const { title = "Portfolio", navigation } = Astro.props;
+const { title = "Portfolio", navigation, lang = 'en' } = Astro.props;
 ---
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -35,11 +36,11 @@ const { title = "Portfolio", navigation } = Astro.props;
     </a>
 
     <div class="sticky top-0 z-50 px-4 pt-3 pb-2" style="background: var(--p-header-gradient);">
-      <div class="max-w-[900px] mx-auto flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
-        <header class="min-w-0 flex-1">
+      <div class="max-w-[1180px] mx-auto">
+        <header class="min-w-0">
           <nav
             data-mobile-nav
-            class="w-full px-4 py-3 lg:py-2 flex flex-col lg:flex-row lg:items-center justify-between gap-3 border"
+            class="w-full px-4 py-3 lg:px-5 lg:py-3 flex flex-col gap-3 border lg:grid lg:grid-cols-[auto,minmax(0,1fr),auto] lg:items-center lg:gap-4"
             style="
               border-radius: 22px;
               border-color: var(--p-nav-border);
@@ -48,25 +49,26 @@ const { title = "Portfolio", navigation } = Astro.props;
               box-shadow: var(--p-nav-shell-shadow, 0 10px 30px rgba(80,100,130,0.12));
             "
           >
-            <div class="flex items-center justify-between gap-3 lg:contents">
-              <div class="font-[Rajdhani] font-bold tracking-[0.14em] text-sm uppercase shrink-0" style="color: var(--p-text);">
+            <div class="flex items-center justify-between gap-3 lg:min-w-0 lg:block">
+              <div class="min-w-0 font-[Rajdhani] font-bold tracking-[0.14em] text-sm uppercase shrink-0" style="color: var(--p-text);">
                 {title}
               </div>
-              <div class="flex items-center gap-2 shrink-0 lg:hidden">
-                <ThemeToggle />
-                <button
-                  type="button"
-                  class="mobile-menu-toggle inline-flex items-center justify-center rounded-[14px] border px-3 py-2 font-[Rajdhani] font-bold text-[12px] uppercase tracking-[0.14em]"
-                  style="background: var(--p-nav-pill-bg); border-color: var(--p-nav-pill-border); color: var(--p-text); box-shadow: var(--p-nav-pill-shadow);"
-                  aria-expanded="false"
-                  aria-controls="mobile-nav-links"
-                  data-mobile-nav-toggle
-                >
-                  Menu
-                </button>
-              </div>
+              <button
+                type="button"
+                class="mobile-menu-toggle inline-flex items-center justify-center rounded-[14px] border px-3 py-2 font-[Rajdhani] font-bold text-[12px] uppercase tracking-[0.14em] shrink-0 lg:hidden"
+                style="background: var(--p-nav-pill-bg); border-color: var(--p-nav-pill-border); color: var(--p-text); box-shadow: var(--p-nav-pill-shadow);"
+                aria-expanded="false"
+                aria-controls="mobile-nav-links"
+                data-mobile-nav-toggle
+              >
+                Menu
+              </button>
             </div>
-            <ul id="mobile-nav-links" class="nav-list hidden lg:flex lg:items-center gap-2 lg:ml-auto pb-1 lg:pb-0" data-mobile-nav-list>
+            <div class="mobile-toolbar flex min-w-0 flex-wrap items-center gap-2 lg:hidden">
+              <LanguageSwitcher lang={lang} />
+              <ThemeToggle />
+            </div>
+            <ul id="mobile-nav-links" class="nav-list hidden lg:flex lg:min-w-0 lg:flex-wrap lg:items-center lg:justify-center gap-2 pb-1 lg:pb-0" data-mobile-nav-list>
               {navigation?.map((item: { href: string; label: string }) => (
                 <li class="flex items-center">
                   <a
@@ -85,11 +87,12 @@ const { title = "Portfolio", navigation } = Astro.props;
                 </li>
               ))}
             </ul>
+            <div class="shrink-0 hidden lg:flex lg:items-center lg:gap-3 lg:justify-self-end">
+              <LanguageSwitcher lang={lang} />
+              <ThemeToggle />
+            </div>
           </nav>
         </header>
-        <div class="shrink-0 hidden lg:block">
-          <ThemeToggle />
-        </div>
       </div>
     </div>
 
@@ -107,6 +110,7 @@ const { title = "Portfolio", navigation } = Astro.props;
 
       .nav-list {
         scrollbar-width: none;
+        min-width: 0;
       }
 
       .nav-list::-webkit-scrollbar {
@@ -133,6 +137,10 @@ const { title = "Portfolio", navigation } = Astro.props;
         transform: translateY(-1px);
       }
 
+      .mobile-toolbar > * {
+        min-width: 0;
+      }
+
       @media (max-width: 1023px) {
         .nav-list.is-open {
           display: flex;
@@ -150,6 +158,46 @@ const { title = "Portfolio", navigation } = Astro.props;
           width: 100%;
           justify-content: center;
           min-height: 2.5rem;
+        }
+
+        .mobile-toolbar {
+          width: 100%;
+          justify-content: flex-end;
+        }
+
+        .mobile-menu-toggle {
+          min-width: 5.75rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        [data-mobile-nav] {
+          display: grid;
+          grid-template-columns: auto minmax(0, 1fr) auto;
+          align-items: center;
+          column-gap: 1rem;
+          row-gap: 0;
+        }
+
+        [data-mobile-nav] > :first-child {
+          width: auto;
+        }
+
+        .nav-link {
+          min-height: 2.25rem;
+          padding-inline: 0.9rem;
+        }
+
+        .nav-list {
+          display: flex;
+          min-width: 0;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .mobile-toolbar {
+          display: none;
         }
       }
     </style>

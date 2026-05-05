@@ -1,0 +1,23 @@
+{
+  "hero": {
+    "location": "Havana, Cuba · Remote",
+    "email": "drobinetm@outlook.com",
+    "view_projects": "View Projects",
+    "years_experience_label": "Years Experience",
+    "remote_since_label": "Remote Since"
+  },
+  "resume": {
+    "view_certificate": "View Certificate →"
+  },
+  "contact": {
+    "success": "Message sent! I'll get back to you soon.",
+    "error_generic": "Something went wrong. Please try again.",
+    "error_not_configured": "Contact form is not configured yet.",
+    "error_network": "Network error. Please check your connection.",
+    "sending": "Sending…"
+  },
+  "nav": {
+    "language_label_en": "EN",
+    "language_label_es": "ES"
+  }
+}

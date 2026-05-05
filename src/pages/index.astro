@@ -10,19 +10,24 @@ import ContactSection from '../components/sections/ContactSection.astro';
 import Footer from '../components/Footer.astro';
 
 import { getCollection } from 'astro:content';
+import { useTranslations } from '../i18n/utils';
 
-const [profile] = await getCollection('portfolio');
+const lang = 'en';
+const t = useTranslations(lang);
+
+const allProfiles = await getCollection('portfolio');
+const profile = allProfiles.find((p) => p.id === 'en' || p.id === 'en.md')!;
 const data = profile.data;
 ---
-<BaseLayout title="Portfolio" navigation={data.navigation}>
+<BaseLayout title="Portfolio" navigation={data.navigation} lang={lang}>
   <div class="relative overflow-hidden flex flex-col">
-    <HeroSection hero={data.hero} />
+    <HeroSection hero={data.hero} t={t} />
     <AboutSection about={data.about} />
     <ProjectsSection projects={data.projects} />
     <SkillsSection skills={data.skills} />
-    <ResumeSection resume={data.resume} />
+    <ResumeSection resume={data.resume} t={t} />
     <ServicesSection services={data.services} />
-    <ContactSection contact={data.contact} />
+    <ContactSection contact={data.contact} t={t} />
     <Footer footer={data.footer} />
   </div>
 </BaseLayout>
