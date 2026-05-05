@@ -69,6 +69,8 @@ projects:
       label: TODOS
     - value: web
       label: WEB
+    - value: libraries
+      label: LIBRERÍAS
   images:
     - src: "/slider/donacostura.jpg"
       title: "Dona Costura"
@@ -110,6 +112,22 @@ projects:
       imageClassName: "rounded-[18px] object-cover"
       filteredClassName: "rounded-[18px] object-cover"
       tags: ["web"]
+    - src: "/slider/drm-multitabs-docs.svg"
+      title: "DRM MultiTabs Docs"
+      alt: "Vista previa de la librería DRM MultiTabs Docs"
+      href: "https://drm-multitabs-docs.netlify.app/"
+      className: "top-[118px] left-[132px] w-[250px] h-[190px] rotate-[-4deg]"
+      imageClassName: "rounded-[18px] object-cover"
+      filteredClassName: "rounded-[18px] object-cover"
+      tags: ["libraries"]
+    - src: "/slider/drm-countries-flags.svg"
+      title: "DRM Countries Flags"
+      alt: "Vista previa de la librería DRM Countries Flags"
+      href: "https://drm-countries-flags.netlify.app/"
+      className: "top-[238px] left-[404px] w-[250px] h-[190px] rotate-[5deg]"
+      imageClassName: "rounded-[18px] object-cover"
+      filteredClassName: "rounded-[18px] object-cover"
+      tags: ["libraries"]
 
 skills:
   badge: "HABILIDADES"
