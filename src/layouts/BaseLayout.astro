@@ -66,7 +66,7 @@ const { title = "Portfolio", navigation, lang = 'en' } = Astro.props;
             </div>
             <div class="mobile-toolbar flex min-w-0 flex-wrap items-center gap-2 lg:hidden">
               <LanguageSwitcher lang={lang} />
-              <ThemeToggle />
+              <ThemeToggle lang={lang} />
             </div>
             <ul id="mobile-nav-links" class="nav-list hidden lg:flex lg:min-w-0 lg:flex-wrap lg:items-center lg:justify-center gap-2 pb-1 lg:pb-0" data-mobile-nav-list>
               {navigation?.map((item: { href: string; label: string }) => (
@@ -89,7 +89,7 @@ const { title = "Portfolio", navigation, lang = 'en' } = Astro.props;
             </ul>
             <div class="shrink-0 hidden lg:flex lg:items-center lg:gap-3 lg:justify-self-end">
               <LanguageSwitcher lang={lang} />
-              <ThemeToggle />
+              <ThemeToggle lang={lang} />
             </div>
           </nav>
         </header>

@@ -19,5 +19,14 @@
   "nav": {
     "language_label_en": "EN",
     "language_label_es": "ES"
+  },
+  "theme": {
+    "selector": "Selector de tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "light_label": "Tema claro",
+    "dark_label": "Tema oscuro",
+    "system_label": "Tema del sistema"
   }
 }

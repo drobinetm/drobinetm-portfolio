@@ -28,7 +28,7 @@ package-lock.json
 .opencode
 openspec
 specs/
-AGENTES.md
+AGENTS.md
 PRD.md
 
 # do not commit .env files or any files that end with `.env`
